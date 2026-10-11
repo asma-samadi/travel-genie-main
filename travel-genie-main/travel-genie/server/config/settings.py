@@ -235,6 +235,7 @@ CORS_ALLOWED_ORIGINS = list(
         [
             "https://tavelgenie.netlify.app",
             "https://6ac884e373c0a40008c9dc54--tavelgenie.netlify.app",
+            "https://travel-012.netlify.app",
             "http://localhost:5173",
             "http://127.0.0.1:5173",
             "http://localhost:3000",
