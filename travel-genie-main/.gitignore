@@ -1,0 +1,11 @@
+# Project root gitignore
+node_modules/
+dist/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+db.sqlite3
+*.backup.sql
+.DS_Store
