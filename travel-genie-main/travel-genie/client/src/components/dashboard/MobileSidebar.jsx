@@ -51,6 +51,8 @@ function MobileSidebar({ close }) {
             absolute
             top-4
             right-4
+            rtl:right-auto
+            rtl:left-4
             z-[60]
             flex
             h-8

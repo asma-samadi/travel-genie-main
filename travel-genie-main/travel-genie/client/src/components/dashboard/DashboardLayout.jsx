@@ -42,11 +42,14 @@ function DashboardLayout() {
         className="
           fixed
           inset-0
-          bg-gradient-to-br
-          from-[#071A2B]/80
-          via-[#09263F]/70
-          to-[#020617]/90
+          bg-[#F5F7FA]/90
+          backdrop-blur-xl
+          dark:bg-gradient-to-br
+          dark:from-[#071A2B]/85
+          dark:via-[#09263F]/75
+          dark:to-[#020617]/95
           -z-10
+          transition-colors duration-300
         "
       />
 
@@ -103,13 +106,15 @@ function DashboardLayout() {
         <div
           className="
             lg:ml-[268px]
+            rtl:lg:ml-0
+            rtl:lg:mr-[268px]
             min-w-0
             flex
             flex-col
           "
         >
           {/* Top Sticky Header */}
-          <div className="sticky top-4 z-40 mb-6 rounded-[22px] bg-white/85 dark:bg-[#071625]/90 backdrop-blur-2xl border border-gray-200/80 dark:border-white/10 px-4 py-2.5 shadow-xl transition-all">
+          <div className="sticky top-4 z-40 mb-6 rounded-[22px] bg-white/90 dark:bg-[#071625]/90 backdrop-blur-2xl border border-gray-200/80 dark:border-white/10 px-4 py-2.5 shadow-xl transition-all">
             <DashboardHeader openSidebar={() => setMobileSidebarOpen(true)} />
           </div>
 

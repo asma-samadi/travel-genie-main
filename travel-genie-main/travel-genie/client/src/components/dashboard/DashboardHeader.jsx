@@ -11,13 +11,12 @@ import {
   BarChart3,
   Plane,
   Ticket,
-  Clock,
-  Sparkles,
 } from "lucide-react";
 
 import ThemeSwitcher from "../Common/ThemeSwitcher";
 import CurrencyAndLangSwitcher from "../Common/CurrencyAndLangSwitcher";
 import { useAuth } from "../../context/AuthContext";
+import { useLocalization } from "../../context/LocalizationContext";
 import { API_BASE_URL } from "../../api/axios";
 
 function DashboardHeader({ openSidebar }) {
@@ -26,6 +25,7 @@ function DashboardHeader({ openSidebar }) {
   const dropdownRef = useRef(null);
 
   const { user, logout } = useAuth();
+  const { t, isRtl } = useLocalization();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -68,9 +68,8 @@ function DashboardHeader({ openSidebar }) {
         w-full
         flex
         items-center
-        gap-3
-        flex-wrap
-        lg:flex-nowrap
+        gap-2
+        sm:gap-3
         relative
         z-30
       "
@@ -81,71 +80,75 @@ function DashboardHeader({ openSidebar }) {
         onClick={openSidebar}
         className="
           lg:hidden
-          h-11
-          w-11
+          h-9
+          w-9
+          sm:h-10
+          sm:w-10
           shrink-0
           rounded-xl
           flex
           items-center
           justify-center
-          bg-white/80
+          bg-gray-100/90
           dark:bg-white/10
           border
-          border-gray-200
+          border-gray-200/90
           dark:border-white/10
           text-gray-800
           dark:text-white
           backdrop-blur-xl
-          hover:bg-gray-100
+          hover:bg-gray-200
           dark:hover:bg-white/20
           transition-all
-          duration-300
+          duration-200
+          cursor-pointer
         "
         aria-label="Open sidebar"
       >
-        <Menu size={20} />
+        <Menu size={18} />
       </button>
 
-      {/* Book Flight CTA Button */}
+      {/* Book Flight CTA Button (desktop/tablet) */}
       <Link
         to="/dashboard/flights"
         className="
-          flex
+          hidden
+          md:flex
           items-center
           gap-2
-          rounded-2xl
-          px-4
-          py-2.5
+          rounded-xl
+          px-3.5
+          py-2
           bg-gradient-to-r
           from-amber-500
           to-[#F58220]
           text-white
           text-xs
           font-bold
-          shadow-lg
+          shadow-md
           shadow-[#F58220]/25
           transition-all
-          duration-300
+          duration-200
           hover:scale-105
           shrink-0
         "
       >
-        <Plane size={16} className="transform -rotate-45" />
-        <span className="hidden sm:inline">Book Flights</span>
+        <Plane size={15} className={`transform ${isRtl ? "rotate-45" : "-rotate-45"}`} />
+        <span>{t("nav_flights")}</span>
       </Link>
 
       {/* Flight Search / Global Query */}
-      <div className="flex-1 min-w-[130px] sm:min-w-[200px]">
+      <div className="flex-1 min-w-[120px] sm:min-w-[180px]">
         <div className="relative w-full">
           <Search
-            size={18}
+            size={16}
             className="
               absolute
-              left-4
+              start-3.5
               top-1/2
               -translate-y-1/2
               text-gray-400
-              dark:text-white/60
+              dark:text-white/50
               z-10
             "
           />
@@ -159,45 +162,47 @@ function DashboardHeader({ openSidebar }) {
                 navigate(`/dashboard/assistant?q=${encodeURIComponent(search.trim())}`);
               }
             }}
-            placeholder="Search flights, destinations, visas..."
+            placeholder={t("header_search_placeholder")}
             className="
               w-full
-              rounded-2xl
-              px-4
-              py-2.5
-              pl-11
+              rounded-xl
+              py-2
+              ps-9
+              pe-3
+              sm:py-2.5
+              sm:ps-10
+              sm:pe-4
               text-xs
-              bg-white/80
-              dark:bg-white/10
+              bg-gray-100/80
+              dark:bg-white/5
               border
-              border-gray-200
+              border-gray-200/80
               dark:border-white/10
-              text-gray-800
+              text-gray-900
               dark:text-white
               placeholder:text-gray-400
               dark:placeholder:text-white/40
-              backdrop-blur-xl
               outline-none
               transition-all
               duration-200
               focus:ring-2
-              focus:ring-[#F58220]
-              focus:border-transparent
+              focus:ring-[#F58220]/20
+              focus:border-[#F58220]
             "
           />
         </div>
       </div>
 
       {/* Language & Currency */}
-      <div className="hidden sm:block">
-        <CurrencyAndLangSwitcher />
+      <div className="shrink-0">
+        <CurrencyAndLangSwitcher themeVariant="auto" />
       </div>
 
       {/* Theme */}
-      <ThemeSwitcher />
+      <ThemeSwitcher themeVariant="auto" />
 
       {/* User Profile Dropdown */}
-      <div className="relative" ref={dropdownRef}>
+      <div className="relative shrink-0" ref={dropdownRef}>
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -265,6 +270,8 @@ function DashboardHeader({ openSidebar }) {
             className="
               absolute
               right-0
+              rtl:right-auto
+              rtl:left-0
               mt-2
               w-60
               rounded-2xl
@@ -324,7 +331,7 @@ function DashboardHeader({ openSidebar }) {
                 "
               >
                 <Plane size={15} className="text-[#F58220]" />
-                <span>Book a Flight</span>
+                <span>{t("book_a_flight")}</span>
               </Link>
 
               <Link
@@ -347,7 +354,7 @@ function DashboardHeader({ openSidebar }) {
                 "
               >
                 <Ticket size={15} className="text-[#F58220]" />
-                <span>My E-Tickets</span>
+                <span>{t("sidebar_my_etickets")}</span>
               </Link>
 
               {isAdmin && (
@@ -370,7 +377,7 @@ function DashboardHeader({ openSidebar }) {
                   "
                 >
                   <BarChart3 size={15} />
-                  <span>Executive Analytics</span>
+                  <span>{t("sidebar_executive_analytics")}</span>
                 </Link>
               )}
 
@@ -397,7 +404,7 @@ function DashboardHeader({ openSidebar }) {
                   "
                 >
                   <ShieldCheck size={15} className="text-emerald-500" />
-                  <span>Django Admin</span>
+                  <span>{t("sidebar_django_admin")}</span>
                 </a>
               )}
 
@@ -421,7 +428,7 @@ function DashboardHeader({ openSidebar }) {
                 "
               >
                 <User size={15} />
-                <span>Passenger Profile</span>
+                <span>{t("sidebar_passenger_profile")}</span>
               </Link>
 
               <Link
@@ -444,7 +451,7 @@ function DashboardHeader({ openSidebar }) {
                 "
               >
                 <Settings size={15} />
-                <span>Preferences</span>
+                <span>{t("sidebar_preferences")}</span>
               </Link>
             </div>
 
@@ -472,7 +479,7 @@ function DashboardHeader({ openSidebar }) {
                 "
               >
                 <LogOut size={15} />
-                <span>Sign Out</span>
+                <span>{t("nav_signout")}</span>
               </button>
             </div>
           </div>

@@ -186,7 +186,7 @@ export default function KamAirInfo() {
               <div className="space-y-3 pt-2 text-xs sm:text-sm text-gray-700 dark:text-white/80">
                 <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-white/5">
                   <span className="font-semibold">Checked Baggage:</span>
-                  <span className="font-bold text-cyan-600 dark:text-cyan-400">{BAGGAGE_POLICIES.economy.checked}</span>
+                  <span className="font-bold text-[#F58220] dark:text-amber-400">{BAGGAGE_POLICIES.economy.checked}</span>
                 </div>
                 <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-white/5">
                   <span className="font-semibold">Cabin Handbag:</span>
@@ -194,7 +194,7 @@ export default function KamAirInfo() {
                 </div>
                 <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-white/5">
                   <span className="font-semibold">Excess Baggage Rate:</span>
-                  <span className="font-bold">${BAGGAGE_POLICIES.economy.excessRateUSD} per kg</span>
+                  <span className="font-bold">{formatPrice(BAGGAGE_POLICIES.economy.excessRateUSD)} / kg</span>
                 </div>
                 <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-900 dark:text-amber-200">
                   <span className="font-bold">Zamzam Water Policy:</span> {BAGGAGE_POLICIES.economy.zamzam}
@@ -224,7 +224,7 @@ export default function KamAirInfo() {
                 </div>
                 <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-white/5">
                   <span className="font-semibold">Excess Baggage Rate:</span>
-                  <span className="font-bold">${BAGGAGE_POLICIES.business.excessRateUSD} per kg</span>
+                  <span className="font-bold">{formatPrice(BAGGAGE_POLICIES.business.excessRateUSD)} / kg</span>
                 </div>
                 <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-900 dark:text-emerald-200">
                   <span className="font-bold">Priority Baggage Handling:</span> Included with dedicated luggage delivery tags upon arrival.

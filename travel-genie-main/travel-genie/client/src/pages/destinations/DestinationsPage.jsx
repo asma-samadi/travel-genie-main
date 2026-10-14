@@ -4,8 +4,10 @@ import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/home/Footer";
 import { MapPin, Plane, ShieldCheck, ArrowRight, Clock, Luggage, Globe2, Search } from "lucide-react";
 import { KAM_AIR_CITIES, VISA_REQUIREMENTS_DATA, POPULAR_KAM_AIR_ROUTES } from "../../data/kamAirRoutes";
+import { useLocalization } from "../../context/LocalizationContext";
 
 export default function DestinationsPage() {
+  const { formatPrice, t } = useLocalization();
   const [filter, setFilter] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -227,8 +229,8 @@ export default function DestinationsPage() {
                   {dest.code}
                 </div>
 
-                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#F58220] text-white text-xs font-bold shadow-md">
-                  From ${dest.priceUSD}
+                <div className="absolute top-3 right-3 rtl:right-auto rtl:left-3 px-3 py-1 rounded-full bg-[#F58220] text-white text-xs font-bold shadow-md">
+                  {t("from_price", "From")} {formatPrice(dest.priceUSD)}
                 </div>
 
                 <div className="absolute bottom-3 left-4 right-4">

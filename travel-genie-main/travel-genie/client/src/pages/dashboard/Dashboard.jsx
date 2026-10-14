@@ -14,8 +14,11 @@ import UpcomingTrips from "../../components/dashboard/UpcomingTrips.jsx";
 import TripRoute from "../../components/dashboard/TripRoute.jsx";
 import WeatherCard from "../../components/dashboard/WeatherCard.jsx";
 import MessagesCard from "../../components/dashboard/MessagesCard.jsx";
+import { useLocalization } from "../../context/LocalizationContext.jsx";
 
 function Dashboard() {
+  const { t } = useLocalization();
+
   return (
     <div className="w-full">
       <div className="flex w-full flex-col gap-4">
@@ -34,7 +37,7 @@ function Dashboard() {
     "
         >
           {/* Exchange */}
-          <div className="min-w-0 lg:h-[250px]">
+          <div className="relative z-30 min-w-0 lg:h-[250px]">
             <ExchangeCard />
           </div>
 
@@ -95,7 +98,7 @@ function Dashboard() {
       h-52
       w-52
       rounded-full
-      bg-cyan-400/10
+      bg-[#F58220]/10
       blur-3xl
     "
             />
@@ -109,7 +112,7 @@ function Dashboard() {
       h-52
       w-52
       rounded-full
-      bg-cyan-500/10
+      bg-amber-500/10
       blur-3xl
     "
             />
@@ -125,8 +128,8 @@ function Dashboard() {
           items-center
           justify-center
           rounded-2xl
-          bg-cyan-500/10
-          text-cyan-500
+          bg-[#F58220]/10
+          text-[#F58220]
         "
                 >
                   <Compass size={22} />
@@ -134,11 +137,11 @@ function Dashboard() {
 
                 <div>
                   <h2 className="text-base font-semibold text-gray-900 dark:text-white">
-                    Your Journey
+                    {t("your_journey", "Your Journey")}
                   </h2>
 
                   <p className="text-xs text-gray-500 dark:text-white/50">
-                    Your travel route
+                    {t("travel_route", "Your travel route")}
                   </p>
                 </div>
               </div>
@@ -149,18 +152,18 @@ function Dashboard() {
         items-center
         gap-1.5
         rounded-full
-        bg-cyan-500/10
+        bg-amber-500/10
         px-3
         py-1.5
         text-xs
         font-medium
-        text-cyan-600
-        dark:text-cyan-400
+        text-[#F58220]
+        dark:text-amber-400
         sm:flex
       "
               >
                 <MapPin size={13} />
-                Travel plan
+                {t("travel_plan", "Travel plan")}
               </div>
             </div>
 

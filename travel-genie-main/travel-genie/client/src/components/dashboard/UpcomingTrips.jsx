@@ -1,14 +1,12 @@
 import { CalendarDays, MapPin, ArrowRight } from "lucide-react";
-
 import { useMemo } from "react";
-
 import { useNavigate } from "react-router-dom";
-
 import { useTrips } from "../../context/TripContext.jsx";
+import { useLocalization } from "../../context/LocalizationContext.jsx";
 
 function UpcomingTrips() {
   const { trips, loading } = useTrips();
-
+  const { t } = useLocalization();
   const navigate = useNavigate();
 
   // ======================================================
@@ -43,7 +41,6 @@ function UpcomingTrips() {
 
     let date;
 
-    // Handle YYYY-MM-DD correctly as a local date
     if (typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value)) {
       date = new Date(`${value}T00:00:00`);
     } else {
@@ -64,22 +61,16 @@ function UpcomingTrips() {
   const upcomingTrips = useMemo(() => {
     if (!Array.isArray(trips)) return [];
 
-    const now = new Date();
-
-    // Start of today
     const today = new Date();
-
     today.setHours(0, 0, 0, 0);
 
     return (
       trips
         .map((trip) => {
           const startDateValue = getTripStartDate(trip);
-
           if (!startDateValue) return null;
 
           const startDate = parseTripDate(startDateValue);
-
           if (!startDate) return null;
 
           return {
@@ -88,14 +79,10 @@ function UpcomingTrips() {
           };
         })
         .filter(Boolean)
-
-        // Include trips happening today
         .filter((trip) => trip.parsedStartDate >= today)
-
         .sort(
           (a, b) => a.parsedStartDate.getTime() - b.parsedStartDate.getTime(),
         )
-
         .slice(0, 2)
     );
   }, [trips]);
@@ -125,12 +112,14 @@ function UpcomingTrips() {
           overflow-hidden
           rounded-[28px]
           border
-          border-gray-300/70
-          bg-[#BCC4C8]
+          border-gray-200/70
+          bg-white/85
           p-5
           shadow-[0_8px_30px_rgba(0,0,0,0.04)]
+          backdrop-blur-xl
           dark:border-white/10
           dark:bg-white/5
+          transition-colors
         "
       >
         <div className="flex items-center gap-3">
@@ -144,23 +133,23 @@ function UpcomingTrips() {
               justify-center
               rounded-2xl
               bg-gradient-to-r
-              from-cyan-500
-              via-blue-500
-              to-purple-500
+              from-amber-500
+              to-[#F58220]
               text-white
               shadow-sm
+              shadow-[#F58220]/25
             "
           >
             <CalendarDays size={19} />
           </div>
 
-          <h2 className="text-sm font-semibold text-gray-900 dark:text-white">
-            Upcoming Tours
+          <h2 className="text-sm font-bold text-gray-900 dark:text-white">
+            {t("upcoming_tours", "Upcoming Tours")}
           </h2>
         </div>
 
-        <p className="mt-5 text-xs text-gray-600 dark:text-white/50">
-          Loading...
+        <p className="mt-5 text-xs text-gray-500 dark:text-white/50">
+          {t("loading", "Loading...")}
         </p>
       </section>
     );
@@ -174,17 +163,17 @@ function UpcomingTrips() {
         overflow-hidden
         rounded-[28px]
         border
-        border-gray-300/70
-        bg-[#BCC4C8]
+        border-gray-200/70
+        bg-white/85
         p-5
         shadow-[0_8px_30px_rgba(0,0,0,0.04)]
         backdrop-blur-xl
         dark:border-white/10
         dark:bg-white/5
+        transition-colors
       "
     >
       {/* Decorative gradient glow */}
-
       <div
         className="
           pointer-events-none
@@ -194,10 +183,7 @@ function UpcomingTrips() {
           h-28
           w-28
           rounded-full
-          bg-gradient-to-r
-          from-cyan-500/10
-          via-blue-500/10
-          to-purple-500/10
+          bg-[#F58220]/10
           blur-2xl
         "
       />
@@ -218,23 +204,22 @@ function UpcomingTrips() {
               justify-center
               rounded-2xl
               bg-gradient-to-r
-              from-cyan-500
-              via-blue-500
-              to-purple-500
+              from-amber-500
+              to-[#F58220]
               text-white
               shadow-sm
+              shadow-[#F58220]/25
             "
           >
             <CalendarDays size={19} />
           </div>
 
-          <h2 className="truncate text-sm font-semibold text-gray-900 dark:text-white">
-            Upcoming Tours
+          <h2 className="truncate text-sm font-bold text-gray-900 dark:text-white">
+            {t("upcoming_tours", "Upcoming Tours")}
           </h2>
         </div>
 
         {/* See All */}
-
         <button
           type="button"
           onClick={() => navigate("/dashboard/trips")}
@@ -243,16 +228,17 @@ function UpcomingTrips() {
             items-center
             gap-1
             text-xs
-            font-medium
-            text-gray-700
+            font-bold
+            text-[#F58220]
             transition
-            hover:text-gray-900
-            dark:text-white/70
-            dark:hover:text-white
+            hover:text-[#e07010]
+            dark:text-amber-400
+            dark:hover:text-amber-300
+            cursor-pointer
           "
         >
-          See all
-          <ArrowRight size={14} />
+          {t("see_all", "See all")}
+          <ArrowRight size={14} className="rtl:rotate-180" />
         </button>
       </div>
 
@@ -263,8 +249,8 @@ function UpcomingTrips() {
       <div className="relative mt-5">
         {upcomingTrips.length === 0 ? (
           <div className="flex items-center justify-center py-6">
-            <p className="text-xs text-gray-600 dark:text-white/40">
-              No upcoming tours
+            <p className="text-xs text-gray-500 dark:text-white/40">
+              {t("no_upcoming_tours", "No upcoming tours")}
             </p>
           </div>
         ) : (
@@ -282,21 +268,23 @@ function UpcomingTrips() {
                   gap-3
                   rounded-2xl
                   border
-                  border-gray-300/70
-                  bg-white/40
+                  border-gray-200/70
+                  bg-gray-50/80
                   p-3
                   text-left
+                  rtl:text-right
                   transition
                   hover:-translate-y-0.5
-                  hover:bg-white/60
+                  hover:bg-white
+                  hover:border-[#F58220]/30
                   hover:shadow-md
                   dark:border-white/10
                   dark:bg-white/5
                   dark:hover:bg-white/10
+                  cursor-pointer
                 "
               >
                 {/* Icon */}
-
                 <div
                   className="
                     flex
@@ -306,18 +294,16 @@ function UpcomingTrips() {
                     items-center
                     justify-center
                     rounded-xl
-                    bg-gradient-to-r
-                    from-cyan-500
-                    via-blue-500
-                    to-purple-500
-                    text-white
+                    bg-[#F58220]/15
+                    text-[#F58220]
+                    dark:bg-[#F58220]/25
+                    dark:text-amber-400
                   "
                 >
                   <MapPin size={17} />
                 </div>
 
                 {/* Trip information */}
-
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-semibold text-gray-900 dark:text-white">
                     {trip.title || trip.destination || "Travel Adventure"}
@@ -326,24 +312,26 @@ function UpcomingTrips() {
                   <div className="mt-0.5 flex items-center gap-1.5">
                     <CalendarDays
                       size={12}
-                      className="shrink-0 text-gray-600 dark:text-white/40"
+                      className="shrink-0 text-gray-500 dark:text-white/40"
                     />
 
-                    <p className="truncate text-[11px] text-gray-600 dark:text-white/50">
+                    <p className="truncate text-[11px] text-gray-500 dark:text-white/50">
                       {formatDate(trip.parsedStartDate)}
                     </p>
                   </div>
                 </div>
 
                 {/* Arrow */}
-
                 <ArrowRight
                   size={15}
                   className="
                     shrink-0
-                    text-gray-500
+                    text-gray-400
                     transition
                     group-hover:translate-x-0.5
+                    group-hover:text-[#F58220]
+                    rtl:rotate-180
+                    rtl:group-hover:-translate-x-0.5
                     dark:text-white/40
                   "
                 />

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight, MapPin, Plane, Clock, ShieldCheck, Globe2 } from "lucide-react";
+import { useLocalization } from "../../context/LocalizationContext.jsx";
 
 const popularKamAirDestinations = [
   {
@@ -73,6 +74,7 @@ const popularKamAirDestinations = [
 
 export default function Destinations() {
   const navigate = useNavigate();
+  const { formatPrice, t } = useLocalization();
 
   return (
     <section id="destinations" className="py-16 sm:py-20 bg-[#F5F7FA] dark:bg-[#07111F] transition-colors">
@@ -83,13 +85,13 @@ export default function Destinations() {
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F58220]/10 border border-[#F58220]/20 text-[#F58220] text-xs font-bold">
               <Globe2 size={14} />
-              <span>Verified Route Network</span>
+              <span>{t("verified_network", "Verified Route Network")}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-[#0B1F3A] dark:text-white tracking-tight">
-              Popular Kam Air Destinations
+              {t("popular_destinations", "Popular Kam Air Destinations")}
             </h2>
             <p className="text-sm text-gray-600 dark:text-gray-300 max-w-xl">
-              Fly directly to major international centers and domestic provinces with Afghanistan’s premier airline.
+              {t("popular_destinations_desc", "Fly directly to major international centers and domestic provinces with Afghanistan’s premier airline.")}
             </p>
           </div>
 
@@ -97,8 +99,8 @@ export default function Destinations() {
             to="/destinations"
             className="inline-flex items-center gap-2 text-xs font-bold text-[#F58220] hover:text-[#e07010] group shrink-0"
           >
-            <span>View All Destinations & Schedules</span>
-            <ArrowRight size={15} className="group-hover:translate-x-1 transition" />
+            <span>{t("view_all_destinations", "View All Destinations & Schedules")}</span>
+            <ArrowRight size={15} className="group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition" />
           </Link>
         </div>
 
@@ -122,12 +124,12 @@ export default function Destinations() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B1F3A] via-transparent to-transparent" />
 
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-[#0B1F3A]/80 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/20">
+                <div className="absolute top-3 left-3 rtl:left-auto rtl:right-3 px-3 py-1 rounded-full bg-[#0B1F3A]/80 backdrop-blur-md text-white text-xs font-black uppercase tracking-wider border border-white/20">
                   {dest.code}
                 </div>
 
-                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-[#F58220] text-white text-xs font-bold shadow-md">
-                  From ${dest.priceUSD}
+                <div className="absolute top-3 right-3 rtl:right-auto rtl:left-3 px-3 py-1 rounded-full bg-[#F58220] text-white text-xs font-bold shadow-md">
+                  {t("from_price", "From")} {formatPrice(dest.priceUSD)}
                 </div>
 
                 <div className="absolute bottom-3 left-4 right-4">
@@ -149,7 +151,7 @@ export default function Destinations() {
                   </div>
                   <div className="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
                     <Clock size={14} />
-                    <span>{dest.flightTime} (Direct)</span>
+                    <span>{dest.flightTime} ({t("direct", "Direct")})</span>
                   </div>
                 </div>
 
@@ -159,14 +161,14 @@ export default function Destinations() {
                     to={`/assistant?q=What are the flights and visa rules for ${dest.name}?`}
                     className="flex-1 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 hover:border-[#F58220] text-center text-xs font-bold text-gray-700 dark:text-gray-200 transition"
                   >
-                    Ask AI Guide
+                    {t("ask_ai", "Ask AI Guide")}
                   </Link>
                   <Link
                     to={`/flights?origin=KBL&destination=${dest.code}`}
                     className="flex-1 py-2.5 rounded-xl bg-[#F58220] hover:bg-[#e07010] text-center text-xs font-bold text-white shadow-md shadow-[#F58220]/25 transition flex items-center justify-center gap-1"
                   >
-                    <span>Book Flight</span>
-                    <ArrowRight size={14} />
+                    <span>{t("book_flight", "Book Flight")}</span>
+                    <ArrowRight size={14} className="rtl:rotate-180" />
                   </Link>
                 </div>
               </div>

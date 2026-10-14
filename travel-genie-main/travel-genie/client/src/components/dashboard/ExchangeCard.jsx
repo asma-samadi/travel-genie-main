@@ -1,6 +1,47 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeftRight, ChevronDown, Search, X } from "lucide-react";
 import { useTrips } from "../../context/TripContext.jsx";
+import { useLocalization } from "../../context/LocalizationContext.jsx";
+
+const FALLBACK_CURRENCIES = [
+  { code: "USD", name: "US Dollar", symbol: "$" },
+  { code: "AFN", name: "Afghan Afghani", symbol: "؋" },
+  { code: "AED", name: "UAE Dirham", symbol: "AED" },
+  { code: "EUR", name: "Euro", symbol: "€" },
+  { code: "GBP", name: "British Pound", symbol: "£" },
+  { code: "PKR", name: "Pakistani Rupee", symbol: "₨" },
+  { code: "INR", name: "Indian Rupee", symbol: "₹" },
+  { code: "TRY", name: "Turkish Lira", symbol: "₺" },
+  { code: "SAR", name: "Saudi Riyal", symbol: "﷼" },
+  { code: "CNY", name: "Chinese Yuan", symbol: "¥" },
+  { code: "JPY", name: "Japanese Yen", symbol: "¥" },
+  { code: "CAD", name: "Canadian Dollar", symbol: "CA$" },
+  { code: "AUD", name: "Australian Dollar", symbol: "A$" },
+  { code: "CHF", name: "Swiss Franc", symbol: "CHF" },
+  { code: "UZS", name: "Uzbekistani Som", symbol: "so'm" },
+  { code: "QAR", name: "Qatari Riyal", symbol: "QR" },
+  { code: "KWD", name: "Kuwaiti Dinar", symbol: "KD" },
+];
+
+const FALLBACK_RATES_FROM_USD = {
+  USD: 1,
+  AFN: 70.5,
+  AED: 3.67,
+  EUR: 0.92,
+  GBP: 0.79,
+  TRY: 32.5,
+  SAR: 3.75,
+  PKR: 278.5,
+  INR: 83.2,
+  CNY: 7.23,
+  JPY: 155.0,
+  CAD: 1.36,
+  AUD: 1.52,
+  CHF: 0.91,
+  UZS: 12650,
+  QAR: 3.64,
+  KWD: 0.31,
+};
 
 const destinationCurrencies = {
   Afghanistan: "AFN",
@@ -23,13 +64,22 @@ const destinationCurrencies = {
   Australia: "AUD",
   USA: "USD",
   "United States": "USD",
+  "Saudi Arabia": "SAR",
+  Uzbekistan: "UZS",
 };
 
 // =====================================================
 // CURRENCY PICKER
 // =====================================================
 
-function CurrencyPicker({ value, onChange, currencies, label, dark = false }) {
+function CurrencyPicker({
+  value,
+  onChange,
+  currencies,
+  label,
+  dark = false,
+  align = "start",
+}) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
 
@@ -85,11 +135,11 @@ function CurrencyPicker({ value, onChange, currencies, label, dark = false }) {
 
   return (
     <div ref={pickerRef} className="relative min-w-0 flex-1">
-      {/* Selected Currency */}
+      {/* Selected Currency Button */}
       <button
         type="button"
         onClick={() => setOpen((previous) => !previous)}
-        className={`flex w-full min-w-0 items-center justify-between gap-1 text-left ${
+        className={`flex w-full min-w-0 items-center justify-between gap-1 text-left rtl:text-right ${
           dark ? "text-white" : "text-gray-800 dark:text-white"
         }`}
         aria-label={label}
@@ -105,34 +155,39 @@ function CurrencyPicker({ value, onChange, currencies, label, dark = false }) {
           size={14}
           className={`shrink-0 transition-transform ${
             open ? "rotate-180" : ""
-          } ${dark ? "text-white/70" : "text-gray-600 dark:text-white/60"}`}
+          } ${dark ? "text-white/80" : "text-gray-500 dark:text-white/60"}`}
         />
       </button>
 
-      {/* Dropdown */}
+      {/* Dropdown Menu */}
       {open && (
         <div
-          className="
-            absolute left-1/2 top-full z-[100] mt-2
-            w-[280px] max-w-[calc(100vw-2rem)] -translate-x-1/2
+          className={`
+            absolute top-full z-[100] mt-2
+            w-[280px] max-w-[calc(100vw-2rem)]
             overflow-hidden rounded-2xl border border-gray-200 bg-white
-            shadow-2xl
-            dark:border-white/10 dark:bg-[#10252b]
-            sm:w-[320px]
-          "
+            shadow-2xl backdrop-blur-xl
+            dark:border-white/15 dark:bg-[#071625]
+            sm:w-[310px]
+            ${
+              align === "end"
+                ? "right-0 rtl:right-auto rtl:left-0"
+                : "left-0 rtl:left-auto rtl:right-0"
+            }
+          `}
         >
           {/* Search */}
-          <div className="border-b border-gray-200 p-3 dark:border-white/10">
+          <div className="border-b border-gray-200 p-2.5 dark:border-white/10">
             <div
               className="
-                flex h-10 min-w-0 items-center gap-2.5 rounded-xl
+                flex h-9 min-w-0 items-center gap-2 rounded-xl
                 border border-gray-200 bg-gray-50 px-3
-                dark:border-white/10 dark:bg-white/10
+                dark:border-white/10 dark:bg-white/5
               "
             >
               <Search
-                size={16}
-                className="shrink-0 text-gray-500 dark:text-white/50"
+                size={14}
+                className="shrink-0 text-gray-400 dark:text-white/40"
               />
 
               <input
@@ -142,7 +197,7 @@ function CurrencyPicker({ value, onChange, currencies, label, dark = false }) {
                 onChange={(event) => setSearch(event.target.value)}
                 placeholder="Search currency..."
                 className="
-                  min-w-0 flex-1 bg-transparent text-sm
+                  min-w-0 flex-1 bg-transparent text-xs
                   text-gray-900 outline-none
                   placeholder:text-gray-400
                   dark:text-white dark:placeholder:text-white/40
@@ -160,22 +215,21 @@ function CurrencyPicker({ value, onChange, currencies, label, dark = false }) {
                   type="button"
                   onClick={() => setSearch("")}
                   className="
-                    flex h-6 w-6 shrink-0 items-center justify-center
-                    rounded-full text-gray-500 transition
-                    hover:bg-gray-200 hover:text-gray-800
-                    dark:text-white/50 dark:hover:bg-white/10
-                    dark:hover:text-white
+                    flex h-5 w-5 shrink-0 items-center justify-center
+                    rounded-full text-gray-400 transition
+                    hover:bg-gray-200 hover:text-gray-700
+                    dark:text-white/40 dark:hover:bg-white/10 dark:hover:text-white
                   "
                   aria-label="Clear currency search"
                 >
-                  <X size={14} />
+                  <X size={12} />
                 </button>
               )}
             </div>
           </div>
 
           {/* Currency List */}
-          <div className="max-h-[320px] overflow-y-auto p-2">
+          <div className="max-h-[260px] overflow-y-auto p-1.5">
             {filteredCurrencies.length > 0 ? (
               filteredCurrencies.map((currency) => (
                 <button
@@ -183,49 +237,37 @@ function CurrencyPicker({ value, onChange, currencies, label, dark = false }) {
                   type="button"
                   onClick={() => handleSelect(currency.code)}
                   className={`
-                    flex min-h-[46px] w-full min-w-0 items-center justify-between
-                    gap-3 rounded-xl px-3 py-2.5 text-left transition
+                    flex min-h-[40px] w-full min-w-0 items-center justify-between
+                    gap-2.5 rounded-xl px-3 py-2 text-left rtl:text-right transition
                     ${
                       currency.code === value
-                        ? "bg-gradient-to-r from-cyan-50 via-blue-50 to-purple-50 text-blue-700 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-purple-500/10 dark:text-cyan-400"
+                        ? "bg-[#F58220]/15 text-[#F58220] font-semibold dark:bg-[#F58220]/25 dark:text-amber-400"
                         : "text-gray-800 hover:bg-gray-100 dark:text-white/80 dark:hover:bg-white/10"
                     }
                   `}
                 >
                   <span className="min-w-0 flex-1 truncate">
-                    <span className="text-sm font-bold">{currency.code}</span>
-
-                    <span className="ml-2 text-sm text-gray-600 dark:text-white/50">
+                    <span className="text-xs font-bold">{currency.code}</span>
+                    <span className="ml-2 rtl:ml-0 rtl:mr-2 text-xs text-gray-500 dark:text-white/50">
                       {currency.name}
                     </span>
                   </span>
 
                   {currency.code === value && (
-                    <span
-                      className="
-                        shrink-0 text-xs font-semibold
-                        bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500
-                        bg-clip-text text-transparent
-                      "
-                    >
-                      Selected
+                    <span className="shrink-0 text-[10px] font-bold text-[#F58220] dark:text-amber-400">
+                      ✓
                     </span>
                   )}
                 </button>
               ))
             ) : (
-              <div className="px-3 py-8 text-center">
+              <div className="px-3 py-6 text-center">
                 <Search
-                  size={22}
-                  className="mx-auto mb-2 text-gray-400 dark:text-white/20"
+                  size={18}
+                  className="mx-auto mb-1.5 text-gray-400 dark:text-white/30"
                 />
-
-                <p className="text-sm font-medium text-gray-600 dark:text-white/50">
+                <p className="text-xs font-medium text-gray-600 dark:text-white/50">
                   No currencies found
-                </p>
-
-                <p className="mt-1 text-xs text-gray-500 dark:text-white/30">
-                  Try another name or currency code.
                 </p>
               </div>
             )}
@@ -242,17 +284,26 @@ function CurrencyPicker({ value, onChange, currencies, label, dark = false }) {
 
 function ExchangeCard() {
   const { trips, loading } = useTrips();
+  const { currency, t } = useLocalization();
 
   const [amount, setAmount] = useState("100");
-  const [currencies, setCurrencies] = useState([]);
-  const [currenciesLoading, setCurrenciesLoading] = useState(true);
+  const [currencies, setCurrencies] = useState(FALLBACK_CURRENCIES);
+  const [currenciesLoading, setCurrenciesLoading] = useState(false);
 
-  const [fromCurrency, setFromCurrency] = useState("USD");
+  const [fromCurrency, setFromCurrency] = useState(currency || "USD");
   const [toCurrency, setToCurrency] = useState("EUR");
 
   const [rate, setRate] = useState(null);
+  const [isEstimatedRate, setIsEstimatedRate] = useState(false);
   const [exchangeLoading, setExchangeLoading] = useState(false);
   const [exchangeError, setExchangeError] = useState("");
+
+  // Sync with global currency if changed
+  useEffect(() => {
+    if (currency) {
+      setFromCurrency(currency);
+    }
+  }, [currency]);
 
   // =====================================================
   // GET NEWEST TRIP
@@ -260,7 +311,6 @@ function ExchangeCard() {
 
   const latestTrip = useMemo(() => {
     if (!Array.isArray(trips) || trips.length === 0) return null;
-
     return [...trips].sort((a, b) => Number(b.id) - Number(a.id))[0];
   }, [trips]);
 
@@ -271,38 +321,40 @@ function ExchangeCard() {
   useEffect(() => {
     const loadCurrencies = async () => {
       try {
-        setCurrenciesLoading(true);
         setExchangeError("");
-
         const response = await fetch(
           "https://api.frankfurter.dev/v2/currencies",
         );
 
         if (!response.ok) {
-          throw new Error("Could not load currencies.");
+          throw new Error("Could not load external currencies.");
         }
 
         const data = await response.json();
 
-        if (!Array.isArray(data)) {
-          throw new Error("Invalid currency list received.");
+        if (Array.isArray(data)) {
+          const apiCurrencies = data
+            .map((curr) => ({
+              code: curr.iso_code,
+              name: curr.name,
+              symbol: curr.symbol || "",
+            }))
+            .filter((curr) => curr.code && curr.name);
+
+          // Merge with fallback currencies ensuring no duplicates
+          const mergedMap = new Map();
+          FALLBACK_CURRENCIES.forEach((c) => mergedMap.set(c.code, c));
+          apiCurrencies.forEach((c) => mergedMap.set(c.code, c));
+
+          const allCurrencies = Array.from(mergedMap.values()).sort((a, b) =>
+            a.code.localeCompare(b.code),
+          );
+
+          setCurrencies(allCurrencies);
         }
-
-        const formattedCurrencies = data
-          .map((currency) => ({
-            code: currency.iso_code,
-            name: currency.name,
-            symbol: currency.symbol || "",
-          }))
-          .filter((currency) => currency.code && currency.name)
-          .sort((a, b) => a.code.localeCompare(b.code));
-
-        setCurrencies(formattedCurrencies);
       } catch (error) {
-        console.error("Currency loading error:", error);
-        setExchangeError("Could not load available currencies.");
-      } finally {
-        setCurrenciesLoading(false);
+        // Fallback already pre-set to FALLBACK_CURRENCIES, so it remains gracefully functional
+        console.warn("Using fallback currency list:", error.message);
       }
     };
 
@@ -315,7 +367,6 @@ function ExchangeCard() {
 
   useEffect(() => {
     const destination = latestTrip?.destination?.trim();
-
     if (!destination) return;
 
     if (destinationCurrencies[destination]) {
@@ -333,7 +384,7 @@ function ExchangeCard() {
   }, [latestTrip?.destination]);
 
   // =====================================================
-  // GET LIVE EXCHANGE RATE
+  // GET LIVE OR ESTIMATED EXCHANGE RATE
   // =====================================================
 
   useEffect(() => {
@@ -342,41 +393,54 @@ function ExchangeCard() {
 
       if (fromCurrency === toCurrency) {
         setRate(1);
+        setIsEstimatedRate(false);
         setExchangeError("");
         setExchangeLoading(false);
         return;
       }
 
-      try {
-        setExchangeLoading(true);
-        setExchangeError("");
+      setExchangeLoading(true);
+      setExchangeError("");
 
+      // Try live API first
+      let liveSuccess = false;
+      try {
         const response = await fetch(
           `https://api.frankfurter.dev/v2/rate/${fromCurrency}/${toCurrency}`,
         );
 
-        if (!response.ok) {
-          throw new Error("Could not load the exchange rate.");
+        if (response.ok) {
+          const data = await response.json();
+          if (typeof data.rate === "number") {
+            setRate(data.rate);
+            setIsEstimatedRate(false);
+            liveSuccess = true;
+          }
         }
-
-        const data = await response.json();
-
-        if (typeof data.rate !== "number") {
-          throw new Error("Invalid exchange rate received.");
-        }
-
-        setRate(data.rate);
-      } catch (error) {
-        console.error("Exchange rate error:", error);
-        setRate(null);
-        setExchangeError("Live exchange rate unavailable.");
-      } finally {
-        setExchangeLoading(false);
+      } catch {
+        // Continue to fallback
       }
+
+      if (!liveSuccess) {
+        // Calculate via known exchange rates
+        const fromRate = FALLBACK_RATES_FROM_USD[fromCurrency];
+        const toRate = FALLBACK_RATES_FROM_USD[toCurrency];
+
+        if (fromRate && toRate) {
+          const computedRate = toRate / fromRate;
+          setRate(computedRate);
+          setIsEstimatedRate(true);
+        } else {
+          setRate(null);
+          setExchangeError(t("exchange_error", "Live exchange rate unavailable."));
+        }
+      }
+
+      setExchangeLoading(false);
     };
 
     getExchangeRate();
-  }, [fromCurrency, toCurrency]);
+  }, [fromCurrency, toCurrency, t]);
 
   // =====================================================
   // CALCULATE CONVERSION
@@ -398,7 +462,6 @@ function ExchangeCard() {
 
   const formatAmount = (value) => {
     if (value === null || value === undefined) return "—";
-
     return Number(value).toLocaleString(undefined, {
       maximumFractionDigits: 2,
     });
@@ -413,13 +476,13 @@ function ExchangeCard() {
       <section
         className="
           h-full min-h-[220px] rounded-[24px]
-          border border-white/40 bg-white/25 p-5
-          shadow-sm backdrop-blur-xl
-          dark:border-white/10 dark:bg-white/[0.06]
+          border border-gray-200/70 bg-white/80 p-5
+          shadow-[0_8px_30px_rgba(0,0,0,0.04)] backdrop-blur-xl
+          dark:border-white/10 dark:bg-white/5
         "
       >
-        <p className="text-sm text-gray-700 dark:text-white/60">
-          Loading currency information...
+        <p className="text-xs text-gray-600 dark:text-white/60">
+          {t("loading", "Loading currency information...")}
         </p>
       </section>
     );
@@ -433,38 +496,34 @@ function ExchangeCard() {
     <section
       className="
         relative h-full min-h-[220px] overflow-visible
-        rounded-[24px] border border-white/40
-        bg-[#B8C0C5] px-4 py-3.5
-        shadow-sm backdrop-blur-xl
-        dark:border-white/10 dark:bg-white/[0.06]
+        rounded-[24px] border border-gray-200/70
+        bg-white/85 px-4 py-3.5
+        shadow-[0_8px_30px_rgba(0,0,0,0.04)] backdrop-blur-xl
+        dark:border-white/10 dark:bg-white/5
+        transition-colors
       "
     >
       {/* Header */}
       <div className="min-w-0">
-        <h2
-          className="
-            truncate font-semibold text-gray-900
-            dark:text-white
-          "
-        >
-          Currency Exchange
+        <h2 className="truncate text-sm font-bold text-gray-900 dark:text-white">
+          {t("currency_exchange", "Currency Exchange")}
         </h2>
 
-        <p className="mt-0.5 truncate text-[11px] text-gray-700 dark:text-white/60">
-          Live currency conversion
+        <p className="mt-0.5 truncate text-[11px] text-gray-500 dark:text-white/60">
+          {t("live_currency_conversion", "Live currency conversion")}
         </p>
       </div>
 
-      {/* Conversion */}
-      <div className="mt-4 flex min-w-0 items-stretch gap-2">
-        {/* FROM */}
+      {/* Conversion Grid */}
+      <div className="mt-3.5 flex min-w-0 items-stretch gap-2">
+        {/* FROM (Kam Air Brand Gradient) */}
         <div
           className="
             min-w-0 flex-[1_1_0%]
             rounded-2xl
-            bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500
-            px-3 py-3 text-white
-            shadow-sm
+            bg-gradient-to-br from-amber-500 to-[#F58220]
+            px-3 py-2.5 text-white
+            shadow-md shadow-[#F58220]/20
           "
         >
           <input
@@ -474,58 +533,58 @@ function ExchangeCard() {
             onChange={(event) => setAmount(event.target.value)}
             className="
               w-full min-w-0 bg-transparent
-              text-lg font-semibold text-white outline-none
+              text-base font-bold text-white outline-none
               placeholder:text-white/70
             "
             aria-label="Amount to convert"
           />
 
-          <div className="mt-2 flex min-w-0 items-center border-t border-white/25 pt-2">
+          <div className="mt-2 flex min-w-0 items-center border-t border-white/25 pt-1.5">
             <CurrencyPicker
               value={fromCurrency}
               onChange={setFromCurrency}
               currencies={currencies}
               label="From currency"
               dark
+              align="start"
             />
           </div>
         </div>
 
-        {/* SWAP */}
+        {/* SWAP BUTTON */}
         <button
           type="button"
           onClick={handleSwap}
           className="
-            flex h-9 w-9 shrink-0 self-center
+            flex h-8 w-8 shrink-0 self-center
             items-center justify-center rounded-full
-            border border-white/70 bg-white/70
+            border border-gray-200 bg-white
             shadow-sm transition
-            hover:scale-105 hover:bg-white
+            hover:scale-105 hover:bg-[#F58220] hover:text-white hover:border-[#F58220]
             active:scale-95
-            dark:border-white/10 dark:bg-white/10
+            text-[#F58220]
+            dark:border-white/15 dark:bg-white/10 dark:text-amber-400
+            cursor-pointer
           "
           aria-label="Swap currencies"
           title="Swap currencies"
         >
-          <ArrowLeftRight
-            size={16}
-            className="text-blue-600 dark:text-cyan-400"
-          />
+          <ArrowLeftRight size={14} />
         </button>
 
         {/* TO */}
         <div
           className="
             min-w-0 flex-[1_1_0%]
-            rounded-2xl border border-white/50
-            bg-white/40 px-3 py-3
-            dark:border-white/10 dark:bg-white/10
+            rounded-2xl border border-gray-200/80
+            bg-gray-50/90 px-3 py-2.5
+            dark:border-white/10 dark:bg-white/5
           "
         >
           <div
             className="
-              min-w-0 truncate text-lg font-semibold
-              text-gray-800 dark:text-white
+              min-w-0 truncate text-base font-bold
+              text-gray-900 dark:text-white
             "
           >
             {exchangeLoading ? "..." : formatAmount(convertedAmount)}
@@ -534,7 +593,7 @@ function ExchangeCard() {
           <div
             className="
               mt-2 flex min-w-0 items-center
-              border-t border-gray-400/20 pt-2
+              border-t border-gray-200 pt-1.5
               dark:border-white/10
             "
           >
@@ -543,27 +602,22 @@ function ExchangeCard() {
               onChange={setToCurrency}
               currencies={currencies}
               label="To currency"
+              align="end"
             />
           </div>
         </div>
       </div>
 
-      {/* EXCHANGE RATE */}
+      {/* EXCHANGE RATE NOTICE */}
       {rate !== null && !exchangeLoading && (
-        <p className="mt-3 min-w-0 truncate text-[11px] font-medium text-gray-700 dark:text-white/70">
+        <p className="mt-3 min-w-0 truncate text-[11px] font-medium text-gray-600 dark:text-white/70">
           1 {fromCurrency} ={" "}
           {Number(rate).toLocaleString(undefined, {
             maximumFractionDigits: 4,
           })}{" "}
           {toCurrency}
-          <span
-            className="
-              ml-1.5 font-semibold
-              bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500
-              bg-clip-text text-transparent
-            "
-          >
-            • Live rate
+          <span className="ml-1.5 font-bold text-[#F58220] dark:text-amber-400">
+            • {isEstimatedRate ? t("market_rate", "Market rate") : t("live_rate", "Live rate")}
           </span>
         </p>
       )}
@@ -575,10 +629,10 @@ function ExchangeCard() {
         </p>
       )}
 
-      {/* NO TRIP */}
-      {!latestTrip && (
-        <p className="mt-3 min-w-0 truncate text-[11px] text-gray-700 dark:text-white/60">
-          Select any currencies you want to convert.
+      {/* NO TRIP / INFO */}
+      {!latestTrip && !exchangeError && (
+        <p className="mt-3 min-w-0 truncate text-[11px] text-gray-500 dark:text-white/50">
+          {t("convert_hint", "Select any currencies you want to convert.")}
         </p>
       )}
     </section>

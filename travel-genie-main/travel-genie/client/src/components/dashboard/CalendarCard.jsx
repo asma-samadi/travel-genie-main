@@ -1,11 +1,12 @@
 import { useMemo, useState } from "react";
-
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { useTrips } from "../../context/TripContext.jsx";
+import { useLocalization } from "../../context/LocalizationContext.jsx";
 
 function CalendarCard() {
   const { trips } = useTrips();
+  const { t } = useLocalization();
 
   const [currentDate, setCurrentDate] = useState(new Date());
 
@@ -225,14 +226,15 @@ function CalendarCard() {
     overflow-hidden
     rounded-[28px]
     border
-    border-white/50
-    bg-[#B8C0C5]
+    border-gray-200/70
+    bg-white/85
     px-4
     py-3
-    shadow-[0_8px_30px_rgba(0,0,0,0.05)]
+    shadow-[0_8px_30px_rgba(0,0,0,0.04)]
     backdrop-blur-xl
     dark:border-white/10
-    dark:bg-white/[0.06]
+    dark:bg-white/5
+    transition-colors
   "
     >
       {/* =====================================================
@@ -262,12 +264,12 @@ function CalendarCard() {
             <h3
               className="
                 text-sm
-                font-semibold
+                font-bold
                 text-gray-900
                 dark:text-white
               "
             >
-              Travel Calendar
+              {t("travel_calendar", "Travel Calendar")}
             </h3>
 
             <p
@@ -301,12 +303,16 @@ function CalendarCard() {
                 bg-gray-50
                 text-gray-600
                 transition
-                hover:bg-gray-100
+                hover:bg-[#F58220]/10
+                hover:text-[#F58220]
+                hover:border-[#F58220]/30
                 active:scale-90
                 dark:border-white/10
                 dark:bg-white/5
                 dark:text-white/60
                 dark:hover:bg-white/10
+                dark:hover:text-amber-400
+                cursor-pointer
               "
               aria-label="Previous month"
             >
@@ -328,12 +334,16 @@ function CalendarCard() {
                 bg-gray-50
                 text-gray-600
                 transition
-                hover:bg-gray-100
+                hover:bg-[#F58220]/10
+                hover:text-[#F58220]
+                hover:border-[#F58220]/30
                 active:scale-90
                 dark:border-white/10
                 dark:bg-white/5
                 dark:text-white/60
                 dark:hover:bg-white/10
+                dark:hover:text-amber-400
+                cursor-pointer
               "
               aria-label="Next month"
             >
@@ -405,12 +415,10 @@ function CalendarCard() {
                     ${
                       status === "between"
                         ? `
-                          bg-gradient-to-r
-                          from-cyan-500/10
-                          via-blue-500/10
-                          to-purple-500/10
-                          text-blue-700
-                          dark:text-cyan-300
+                          bg-amber-500/15
+                          text-[#F58220]
+                          dark:bg-amber-500/25
+                          dark:text-amber-400
                         `
                         : ""
                     }
@@ -420,11 +428,10 @@ function CalendarCard() {
                         ? `
                           rounded-l-full
                           bg-gradient-to-r
-                          from-cyan-500
-                          via-blue-500
-                          to-purple-500
+                          from-amber-500
+                          to-[#F58220]
                           text-white
-                          shadow-[0_3px_10px_rgba(59,130,246,0.25)]
+                          shadow-[0_3px_10px_rgba(245,130,32,0.25)]
                         `
                         : ""
                     }
@@ -434,11 +441,10 @@ function CalendarCard() {
                         ? `
                           rounded-r-full
                           bg-gradient-to-r
-                          from-cyan-500
-                          via-blue-500
-                          to-purple-500
+                          from-amber-500
+                          to-[#F58220]
                           text-white
-                          shadow-[0_3px_10px_rgba(139,92,246,0.25)]
+                          shadow-[0_3px_10px_rgba(245,130,32,0.25)]
                         `
                         : ""
                     }
@@ -448,11 +454,10 @@ function CalendarCard() {
                         ? `
                           rounded-full
                           bg-gradient-to-r
-                          from-cyan-500
-                          via-blue-500
-                          to-purple-500
+                          from-amber-500
+                          to-[#F58220]
                           text-white
-                          shadow-[0_3px_10px_rgba(59,130,246,0.25)]
+                          shadow-[0_3px_10px_rgba(245,130,32,0.25)]
                         `
                         : ""
                     }
@@ -462,9 +467,10 @@ function CalendarCard() {
                         ? `
                           rounded-full
                           border
-                          border-[#00B1E2]
-                          text-[#009AC5]
-                          dark:text-cyan-300
+                          border-[#F58220]
+                          text-[#F58220]
+                          font-bold
+                          dark:text-amber-400
                         `
                         : ""
                     }
@@ -474,7 +480,8 @@ function CalendarCard() {
                         ? `
                           rounded-full
                           text-gray-700
-                          hover:bg-gray-100
+                          hover:bg-[#F58220]/10
+                          hover:text-[#F58220]
                           dark:text-white/70
                           dark:hover:bg-white/10
                         `

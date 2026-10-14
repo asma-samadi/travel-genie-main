@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useLocalization } from "../../context/LocalizationContext";
 import { API_BASE_URL } from "../../api/axios";
 
 import {
@@ -19,52 +20,9 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-const menuItems = [
-  {
-    name: "Dashboard",
-    path: "/dashboard",
-    icon: LayoutDashboard,
-    end: true,
-  },
-  {
-    name: "Book Flights",
-    path: "/dashboard/flights",
-    icon: Plane,
-  },
-  {
-    name: "Flight Status",
-    path: "/dashboard/flight-status",
-    icon: Clock,
-  },
-  {
-    name: "AI Concierge",
-    path: "/dashboard/assistant",
-    icon: Sparkles,
-  },
-  {
-    name: "My E-Tickets",
-    path: "/dashboard/my-trip",
-    icon: Ticket,
-  },
-  {
-    name: "Trip Plans",
-    path: "/dashboard/trips",
-    icon: Map,
-  },
-  {
-    name: "Budget",
-    path: "/dashboard/budget",
-    icon: Wallet,
-  },
-  {
-    name: "Memories",
-    path: "/dashboard/memory",
-    icon: Brain,
-  },
-];
-
 function Sidebar({ close }) {
   const { user, logout } = useAuth();
+  const { t, isRtl } = useLocalization();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -75,6 +33,50 @@ function Sidebar({ close }) {
 
   const isAdmin = Boolean(user?.is_staff || user?.is_superuser);
 
+  const menuItems = [
+    {
+      name: t("sidebar_dashboard"),
+      path: "/dashboard",
+      icon: LayoutDashboard,
+      end: true,
+    },
+    {
+      name: t("sidebar_book_flights"),
+      path: "/dashboard/flights",
+      icon: Plane,
+    },
+    {
+      name: t("sidebar_flight_status"),
+      path: "/dashboard/flight-status",
+      icon: Clock,
+    },
+    {
+      name: t("sidebar_ai_concierge"),
+      path: "/dashboard/assistant",
+      icon: Sparkles,
+    },
+    {
+      name: t("sidebar_my_etickets"),
+      path: "/dashboard/my-trip",
+      icon: Ticket,
+    },
+    {
+      name: t("sidebar_trip_plans"),
+      path: "/dashboard/trips",
+      icon: Map,
+    },
+    {
+      name: t("sidebar_budget"),
+      path: "/dashboard/budget",
+      icon: Wallet,
+    },
+    {
+      name: t("sidebar_memories"),
+      path: "/dashboard/memory",
+      icon: Brain,
+    },
+  ];
+
   return (
     <aside
       className="
@@ -84,6 +86,8 @@ function Sidebar({ close }) {
         lg:z-50
         lg:top-6
         lg:left-6
+        rtl:lg:left-auto
+        rtl:lg:right-6
         lg:w-[248px]
         lg:h-[calc(100vh-48px)]
         rounded-[28px]
@@ -105,7 +109,7 @@ function Sidebar({ close }) {
       <div className="flex items-center justify-between pb-3 border-b border-gray-100 dark:border-white/10">
         <div className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#F58220] to-amber-500 flex items-center justify-center text-white shadow-md shadow-[#F58220]/25">
-            <Plane size={18} className="transform -rotate-45" />
+            <Plane size={18} className={`transform ${isRtl ? "rotate-45" : "-rotate-45"}`} />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
@@ -114,7 +118,7 @@ function Sidebar({ close }) {
               </span>
             </div>
             <div className="text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-white/40">
-              Passenger Portal
+              {t("nav_portal")}
             </div>
           </div>
         </div>
@@ -198,7 +202,7 @@ function Sidebar({ close }) {
               }
             >
               <BarChart3 size={16} />
-              <span>Executive Analytics</span>
+              <span>{t("sidebar_executive_analytics")}</span>
             </NavLink>
 
             <a
@@ -209,7 +213,7 @@ function Sidebar({ close }) {
             >
               <div className="flex items-center gap-2">
                 <ShieldCheck size={14} className="text-[#F58220]" />
-                <span>Django Admin</span>
+                <span>{t("sidebar_django_admin")}</span>
               </div>
               <ExternalLink size={12} />
             </a>
@@ -242,7 +246,7 @@ function Sidebar({ close }) {
           }
         >
           <User size={16} />
-          <span>Passenger Profile</span>
+          <span>{t("sidebar_passenger_profile")}</span>
         </NavLink>
 
         <NavLink
@@ -271,7 +275,7 @@ function Sidebar({ close }) {
           }
         >
           <Settings size={16} />
-          <span>Preferences</span>
+          <span>{t("sidebar_preferences")}</span>
         </NavLink>
 
         <button
@@ -298,7 +302,7 @@ function Sidebar({ close }) {
           "
         >
           <LogOut size={16} />
-          <span>Sign Out</span>
+          <span>{t("nav_signout")}</span>
         </button>
       </div>
     </aside>

@@ -2,10 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { MapPin, CalendarDays, ArrowRight, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTrips } from "../../context/TripContext.jsx";
+import { useLocalization } from "../../context/LocalizationContext.jsx";
 
 function HeroCard() {
   const navigate = useNavigate();
   const { trips, loading } = useTrips();
+  const { t } = useLocalization();
 
   const [backgroundImage, setBackgroundImage] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
@@ -229,15 +231,15 @@ function HeroCard() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/15 px-3 py-1 text-xs font-bold text-amber-300 backdrop-blur-md">
               <Sparkles size={13} />
-              <span>Kam Air Passenger Portal</span>
+              <span>{t("kam_air_portal", "Kam Air Passenger Portal")}</span>
             </div>
 
             <h1 className="mt-3 text-lg sm:text-xl font-black text-white">
-              Your next journey starts here ✈️
+              {t("hero_title_empty", "Your next journey starts here ✈️")}
             </h1>
 
             <p className="mt-1 text-xs text-white/80 line-clamp-2">
-              Explore verified flights connecting Kabul to Dubai, Istanbul, Jeddah, Delhi, and domestic destinations.
+              {t("hero_desc_empty", "Explore verified flights connecting Kabul to Dubai, Istanbul, Jeddah, Delhi, and domestic destinations.")}
             </p>
           </div>
 
@@ -247,8 +249,8 @@ function HeroCard() {
               onClick={() => navigate("/dashboard/flights")}
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-[#F58220] hover:brightness-110 px-4 py-2.5 text-xs font-bold text-white transition-all shadow-md shadow-[#F58220]/30 hover:scale-105 cursor-pointer"
             >
-              <span>Book a Flight</span>
-              <ArrowRight size={14} />
+              <span>{t("book_a_flight", "Book a Flight")}</span>
+              <ArrowRight size={14} className="rtl:rotate-180" />
             </button>
           </div>
         </div>
@@ -306,14 +308,14 @@ function HeroCard() {
       {/* FALLBACK */}
 
       {!backgroundImage && (
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-700" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B1F3A] via-[#122A4E] to-[#F58220]" />
       )}
 
       {/* OVERLAY */}
 
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/10 via-transparent to-purple-950/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/20" />
 
       {/* CONTENT */}
 
