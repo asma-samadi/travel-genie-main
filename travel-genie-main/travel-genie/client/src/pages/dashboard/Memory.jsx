@@ -89,8 +89,8 @@ function Memory() {
               justify-center
               rounded-2xl
               bg-gradient-to-r
-              from-cyan-500
-              to-blue-600
+              from-amber-500
+              to-[#F58220]
               text-white
               shadow-lg
             "
@@ -166,7 +166,7 @@ function Memory() {
       {hasMemories && (
         <GlassCard className="p-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
               <MapPin size={20} />
             </div>
 
@@ -185,7 +185,7 @@ function Memory() {
             {travelMemory.destinations.map((destination) => (
               <span
                 key={destination}
-                className="rounded-full bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-600 dark:text-cyan-400"
+                className="rounded-full bg-[#F58220]/15 px-4 py-2 text-sm font-medium text-[#F58220] dark:text-amber-400"
               >
                 {destination}
               </span>
@@ -278,7 +278,7 @@ function Memory() {
 function MemoryStat({ icon, label, value }) {
   return (
     <div className="rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-5">
-      <div className="flex items-center gap-2 text-cyan-500">
+      <div className="flex items-center gap-2 text-[#F58220]">
         {icon}
 
         <span className="text-sm font-medium text-gray-600 dark:text-white/60">

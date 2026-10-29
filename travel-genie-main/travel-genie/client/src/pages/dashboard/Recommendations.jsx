@@ -359,7 +359,7 @@ console.log("AI PROMPT:", prompt);
     return (
       <div className="flex items-center justify-center py-20">
         <div className="flex items-center gap-3 text-white/70">
-          <RefreshCw size={20} className="animate-spin text-cyan-500" />
+          <RefreshCw size={20} className="animate-spin text-[#F58220]" />
           <span>Loading your trips...</span>
         </div>
       </div>
@@ -387,8 +387,8 @@ console.log("AI PROMPT:", prompt);
               justify-center
               rounded-2xl
               bg-gradient-to-r
-              from-cyan-500
-              to-blue-600
+              from-amber-500
+              to-[#F58220]
               text-white
               shadow-lg
             "
@@ -425,8 +425,8 @@ console.log("AI PROMPT:", prompt);
                   items-center
                   justify-center
                   rounded-xl
-                  bg-cyan-500/15
-                  text-cyan-500
+                  bg-[#F58220]/15
+                  text-[#F58220]
                 "
               >
                 <Compass size={20} />
@@ -452,8 +452,8 @@ console.log("AI PROMPT:", prompt);
                   items-center
                   justify-center
                   rounded-xl
-                  bg-blue-500/15
-                  text-blue-500
+                  bg-amber-500/15
+                  text-[#F58220]
                 "
               >
                 <Mountain size={20} />
@@ -601,7 +601,7 @@ console.log("AI PROMPT:", prompt);
                   dark:text-white
                   outline-none
                   focus:ring-2
-                  focus:ring-cyan-500
+                  focus:ring-[#F58220]
                   transition
                   cursor-pointer
                   [&>option]:bg-white
@@ -631,7 +631,7 @@ console.log("AI PROMPT:", prompt);
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
                   <div>
                     <div className="flex items-center gap-2">
-                      <MapPin size={18} className="text-cyan-500 shrink-0" />
+                      <MapPin size={18} className="text-[#F58220] shrink-0" />
 
                       <h3 className="text-xl font-bold text-white">
                         {selectedTrip.title || selectedTrip.destination}
@@ -706,8 +706,8 @@ console.log("AI PROMPT:", prompt);
                       transition
                       ${
                         selected
-                          ? "bg-cyan-500 text-white border-cyan-500"
-                          : "bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-white/70 border-gray-200 dark:border-white/10 hover:border-cyan-500 hover:text-cyan-500"
+                          ? "bg-[#F58220] text-white border-[#F58220]"
+                          : "bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-white/70 border-gray-200 dark:border-white/10 hover:border-cyan-500 hover:text-[#F58220]"
                       }
                     `}
                   >
@@ -729,8 +729,8 @@ console.log("AI PROMPT:", prompt);
                   gap-2
                   rounded-xl
                   bg-gradient-to-r
-                  from-cyan-500
-                  to-blue-600
+                  from-amber-500
+                  to-[#F58220]
                   px-5
                   py-3
                   text-sm
@@ -817,7 +817,7 @@ console.log("AI PROMPT:", prompt);
           ) : (
             <GlassCard className="p-6">
               <div className="flex flex-col items-center justify-center text-center">
-                <Sparkles size={36} className="text-cyan-500" />
+                <Sparkles size={36} className="text-[#F58220]" />
 
                 <h3 className="mt-3 text-lg font-semibold text-white">
                   Ready for personalized recommendations?
@@ -843,7 +843,7 @@ console.log("AI PROMPT:", prompt);
 function TripInfo({ icon, label, value }) {
   return (
     <div className="rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/5 px-3 py-2.5">
-      <div className="flex items-center gap-2 text-cyan-500">
+      <div className="flex items-center gap-2 text-[#F58220]">
         {icon}
 
         <span className="text-xs font-medium text-gray-600 dark:text-white/60">
@@ -866,7 +866,7 @@ function RecommendationCard({ icon, title, items }) {
   return (
     <GlassCard className="p-5">
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
           {icon}
         </div>
 
@@ -893,7 +893,7 @@ function RecommendationCard({ icon, title, items }) {
                 p-3
               "
             >
-              <div className="mt-0.5 shrink-0 text-cyan-500">
+              <div className="mt-0.5 shrink-0 text-[#F58220]">
                 <Sparkles size={15} />
               </div>
 

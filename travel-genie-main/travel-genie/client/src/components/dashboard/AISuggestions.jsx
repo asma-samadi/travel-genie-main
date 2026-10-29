@@ -132,8 +132,8 @@ function AISuggestions() {
             justify-center
             rounded-2xl
             bg-gradient-to-r
-            from-cyan-500
-            to-blue-600
+            from-amber-500
+            to-[#F58220]
             text-white
             shadow-lg
           "
@@ -168,7 +168,7 @@ function AISuggestions() {
             backdrop-blur-xl
           "
         >
-          <Sparkles size={28} className="mx-auto animate-pulse text-cyan-500" />
+          <Sparkles size={28} className="mx-auto animate-pulse text-[#F58220]" />
 
           <p className="mt-3 text-sm text-gray-500 dark:text-white/60">
             Preparing your personalized suggestions...
@@ -220,9 +220,9 @@ function AISuggestions() {
                     items-center
                     justify-center
                     rounded-2xl
-                    bg-cyan-500/10
-                    text-cyan-500
-                    dark:bg-cyan-500/20
+                    bg-[#F58220]/15
+                    text-[#F58220]
+                    dark:bg-[#F58220]/25
                   "
                 >
                   <Icon size={24} />
@@ -270,14 +270,14 @@ function AISuggestions() {
             gap-3
             rounded-2xl
             border
-            border-cyan-500/20
-            bg-cyan-500/5
+            border-[#F58220]/25
+            bg-[#F58220]/10
             px-5
             py-4
-            dark:bg-cyan-500/10
+            dark:bg-[#F58220]/15
           "
         >
-          <Sparkles size={18} className="shrink-0 text-cyan-500" />
+          <Sparkles size={18} className="shrink-0 text-[#F58220]" />
 
           <p className="text-sm text-gray-600 dark:text-white/70">
             Suggestions are based on your trip to{" "}

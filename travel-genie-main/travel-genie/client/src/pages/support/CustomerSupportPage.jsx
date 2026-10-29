@@ -117,7 +117,7 @@ export default function CustomerSupportPage() {
           {/* Dubai Office */}
           <div className="rounded-3xl bg-white dark:bg-[#0B1F3A]/90 p-6 shadow-xl border border-gray-100 dark:border-white/10 space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">UAE Hub</span>
+              <span className="text-xs font-bold text-[#F58220] dark:text-amber-400 uppercase tracking-wider">UAE Hub</span>
               <MapPin size={18} className="text-gray-400" />
             </div>
             <h3 className="text-lg font-black text-[#0B1F3A] dark:text-white">Dubai, UAE</h3>
@@ -126,7 +126,7 @@ export default function CustomerSupportPage() {
             </p>
             <div className="pt-2 border-t border-gray-100 dark:border-white/10 space-y-1.5 text-xs">
               <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200 font-semibold">
-                <Phone size={14} className="text-cyan-600" />
+                <Phone size={14} className="text-[#F58220]" />
                 <span>+971 4 298 9898</span>
               </div>
               <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">

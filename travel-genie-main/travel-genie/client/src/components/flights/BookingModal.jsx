@@ -323,11 +323,11 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
               <div className="p-5 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Plane size={18} className="text-cyan-500" />
+                    <Plane size={18} className="text-[#F58220]" />
                     <span className="font-bold text-gray-900 dark:text-white">{flight.flightNumber}</span>
                     <span className="text-xs text-gray-500 dark:text-white/50">({flight.aircraft})</span>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+                  <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-[#F58220]/10 text-[#F58220] border border-[#F58220]/20">
                     Non-Stop Direct
                   </span>
                 </div>
@@ -340,7 +340,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                   <div className="flex flex-col items-center px-4">
                     <span className="text-[11px] font-medium text-gray-400 dark:text-white/40">{flight.duration}</span>
                     <div className="w-24 sm:w-36 h-0.5 bg-gray-300 dark:bg-white/20 my-1 relative">
-                      <div className="absolute right-0 -top-1 h-2.5 w-2.5 rounded-full bg-cyan-500" />
+                      <div className="absolute right-0 -top-1 h-2.5 w-2.5 rounded-full bg-[#F58220]" />
                     </div>
                   </div>
                   <div>
@@ -416,7 +416,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                     value={passenger.firstName}
                     onChange={handlePassengerChange}
                     placeholder="e.g. Ahmad"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-cyan-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-[#F58220]"
                     required
                   />
                 </div>
@@ -431,7 +431,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                     value={passenger.lastName}
                     onChange={handlePassengerChange}
                     placeholder="e.g. Popal"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-cyan-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-[#F58220]"
                     required
                   />
                 </div>
@@ -448,7 +448,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                     value={passenger.passportNumber}
                     onChange={handlePassengerChange}
                     placeholder="e.g. O12345678"
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white uppercase outline-none focus:border-cyan-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white uppercase outline-none focus:border-[#F58220]"
                     required
                   />
                 </div>
@@ -462,7 +462,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                     name="passportExpiry"
                     value={passenger.passportExpiry}
                     onChange={handlePassengerChange}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-cyan-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-[#F58220]"
                     required
                   />
                 </div>
@@ -478,7 +478,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                     name="dob"
                     value={passenger.dob}
                     onChange={handlePassengerChange}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-cyan-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-[#F58220]"
                   />
                 </div>
 
@@ -491,7 +491,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                     name="nationality"
                     value={passenger.nationality}
                     onChange={handlePassengerChange}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-cyan-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-[#F58220]"
                   />
                 </div>
 
@@ -505,7 +505,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                     value={passenger.phone}
                     onChange={handlePassengerChange}
                     placeholder="+93 7..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-cyan-500"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-[#F58220]"
                   />
                 </div>
               </div>
@@ -520,7 +520,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                   value={passenger.email}
                   onChange={handlePassengerChange}
                   placeholder="traveler@example.com"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-cyan-500"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white outline-none focus:border-[#F58220]"
                 />
               </div>
             </div>
@@ -573,7 +573,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                       onClick={() => setSeatPreference(s)}
                       className={`py-2 px-3 rounded-xl text-xs font-bold transition ${
                         seatPreference === s
-                          ? "bg-cyan-500 text-white"
+                          ? "bg-[#F58220] text-white"
                           : "bg-white dark:bg-white/10 text-gray-700 dark:text-white/80 border border-gray-200 dark:border-white/10"
                       }`}
                     >
@@ -594,7 +594,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                       onClick={() => setMealPreference(m)}
                       className={`py-2 px-3 rounded-xl text-xs font-bold transition text-left ${
                         mealPreference === m
-                          ? "bg-cyan-500 text-white"
+                          ? "bg-[#F58220] text-white"
                           : "bg-white dark:bg-white/10 text-gray-700 dark:text-white/80 border border-gray-200 dark:border-white/10"
                       }`}
                     >
@@ -682,7 +682,7 @@ export default function BookingModal({ flight, returnFlight, onClose, onBookingS
                   className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition ${
                     tripSaved
                       ? "bg-emerald-500/20 text-emerald-500 border border-emerald-500/30"
-                      : "bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg shadow-cyan-500/20"
+                      : "bg-[#F58220] hover:bg-[#e07010] text-white shadow-lg shadow-[#F58220]/25"
                   }`}
                 >
                   <BookmarkCheck size={16} />

@@ -104,7 +104,7 @@ function EditTrip() {
           dark:border-white/10
           hover:bg-gray-200
           dark:hover:bg-white/20
-          hover:text-cyan-500
+          hover:text-[#F58220]
           transition-all
           duration-300
         "
@@ -135,11 +135,7 @@ function EditTrip() {
             sm:text-4xl
             font-bold
             bg-gradient-to-r
-            from-cyan-500
-            via-blue-500
-            to-purple-500
-            bg-clip-text
-            text-transparent
+            text-[#0B1F3A] dark:text-white
           "
         >
           Edit Your Trip
@@ -192,13 +188,13 @@ function EditTrip() {
                 border-gray-300
                 dark:border-white/20
                 bg-white
-                dark:bg-slate-900
+                dark:bg-white/10
                 p-4
                 text-gray-900
                 dark:text-white
                 outline-none
                 focus:ring-2
-                focus:ring-cyan-500
+                focus:ring-[#F58220]
               "
             />
           </div>
@@ -234,13 +230,13 @@ function EditTrip() {
                 border-gray-300
                 dark:border-white/20
                 bg-white
-                dark:bg-slate-900
+                dark:bg-white/10
                 p-4
                 text-gray-900
                 dark:text-white
                 outline-none
                 focus:ring-2
-                focus:ring-cyan-500
+                focus:ring-[#F58220]
               "
             />
           </div>
@@ -274,7 +270,7 @@ function EditTrip() {
                 border-gray-300
                 dark:border-white/20
                 bg-white
-                dark:bg-slate-900
+                dark:bg-white/10
                 p-4
                 text-gray-900
                 dark:text-white
@@ -325,13 +321,13 @@ function EditTrip() {
                 border-gray-300
                 dark:border-white/20
                 bg-white
-                dark:bg-slate-900
+                dark:bg-white/10
                 p-4
                 text-gray-900
                 dark:text-white
                 outline-none
                 focus:ring-2
-                focus:ring-cyan-500
+                focus:ring-[#F58220]
               "
             />
           </div>
@@ -367,13 +363,13 @@ function EditTrip() {
                 border-gray-300
                 dark:border-white/20
                 bg-white
-                dark:bg-slate-900
+                dark:bg-white/10
                 p-4
                 text-gray-900
                 dark:text-white
                 outline-none
                 focus:ring-2
-                focus:ring-cyan-500
+                focus:ring-[#F58220]
               "
             />
           </div>
@@ -409,13 +405,13 @@ function EditTrip() {
                 border-gray-300
                 dark:border-white/20
                 bg-white
-                dark:bg-slate-900
+                dark:bg-white/10
                 p-4
                 text-gray-900
                 dark:text-white
                 outline-none
                 focus:ring-2
-                focus:ring-cyan-500
+                focus:ring-[#F58220]
               "
             />
           </div>
@@ -429,12 +425,12 @@ function EditTrip() {
               justify-center
               gap-2
               rounded-xl
-              bg-cyan-500
+              bg-[#F58220]
               py-4
               font-semibold
               text-white
               transition
-              hover:bg-cyan-400
+              hover:bg-[#e07010]
             "
           >
             <Save size={20} />

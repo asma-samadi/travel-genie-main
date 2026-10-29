@@ -28,7 +28,7 @@ function MessagesCard() {
           h-36
           w-36
           rounded-full
-          bg-cyan-400/10
+          bg-[#F58220]/10
           blur-3xl
         "
       />
@@ -44,8 +44,8 @@ function MessagesCard() {
             items-center
             justify-center
             rounded-2xl
-            bg-cyan-500/10
-            text-cyan-500
+            bg-[#F58220]/15
+            text-[#F58220]
           "
         >
           <MessageCircle size={21} />

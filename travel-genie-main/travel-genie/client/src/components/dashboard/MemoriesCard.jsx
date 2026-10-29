@@ -192,7 +192,7 @@ function Memories() {
       <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-500">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F58220]/15 text-[#F58220]">
               <Camera size={23} />
             </div>
 
@@ -202,7 +202,7 @@ function Memories() {
                   text-3xl
                   font-bold
                   bg-gradient-to-r
-                  from-cyan-500
+                  from-amber-500
                   via-blue-500
                   to-purple-500
                   bg-clip-text
@@ -260,16 +260,16 @@ function Memories() {
               items-center
               gap-2
               rounded-xl
-              bg-cyan-500
+              bg-[#F58220]
               px-5
               py-3
               text-sm
               font-semibold
               text-white
               shadow-lg
-              shadow-cyan-500/20
+              shadow-[#F58220]/25
               transition
-              hover:bg-cyan-400
+              hover:bg-[#e07010]
               hover:-translate-y-0.5
             "
           >
@@ -373,16 +373,16 @@ function Memories() {
                     bg-gray-50/50
                     text-gray-500
                     transition
-                    hover:border-cyan-400
-                    hover:bg-cyan-50/50
+                    hover:border-[#F58220]
+                    hover:bg-[#F58220]/10
                     dark:border-white/10
                     dark:bg-white/[0.03]
                     dark:text-white/50
-                    dark:hover:border-cyan-400/50
-                    dark:hover:bg-cyan-500/5
+                    dark:hover:border-[#F58220]/50
+                    dark:hover:bg-[#F58220]/5
                   "
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-500">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#F58220]/15 text-[#F58220]">
                     <ImagePlus size={23} />
                   </div>
 
@@ -420,7 +420,7 @@ function Memories() {
               <div className="relative">
                 <MapPin
                   size={18}
-                  className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-cyan-500"
+                  className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#F58220]"
                 />
 
                 <select
@@ -441,9 +441,9 @@ function Memories() {
                     text-gray-700
                     outline-none
                     transition
-                    focus:border-cyan-400
+                    focus:border-[#F58220]
                     focus:ring-4
-                    focus:ring-cyan-500/10
+                    focus:ring-[#F58220]/20
                     dark:border-white/10
                     dark:bg-white/5
                     dark:text-white
@@ -500,9 +500,9 @@ function Memories() {
                   outline-none
                   transition
                   placeholder:text-gray-400
-                  focus:border-cyan-400
+                  focus:border-[#F58220]
                   focus:ring-4
-                  focus:ring-cyan-500/10
+                  focus:ring-[#F58220]/20
                   dark:border-white/10
                   dark:bg-white/5
                   dark:text-white
@@ -529,14 +529,14 @@ function Memories() {
                   items-center
                   gap-2
                   rounded-xl
-                  bg-cyan-500
+                  bg-[#F58220]
                   px-6
                   py-3
                   text-sm
                   font-semibold
                   text-white
                   transition
-                  hover:bg-cyan-400
+                  hover:bg-[#e07010]
                 "
               >
                 <Plus size={18} />
@@ -571,7 +571,7 @@ function Memories() {
             dark:bg-white/5
           "
         >
-          <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-cyan-500/10 text-cyan-500">
+          <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[#F58220]/15 text-[#F58220]">
             <Camera size={30} />
           </div>
 
@@ -592,14 +592,14 @@ function Memories() {
               items-center
               gap-2
               rounded-xl
-              bg-cyan-500
+              bg-[#F58220]
               px-5
               py-3
               text-sm
               font-semibold
               text-white
               transition
-              hover:bg-cyan-400
+              hover:bg-[#e07010]
             "
           >
             <ImagePlus size={18} />
@@ -670,7 +670,7 @@ function Memories() {
               </div>
 
               <div className="p-5">
-                <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400">
+                <div className="flex items-center gap-2 text-[#F58220] dark:text-amber-400">
                   <MapPin size={15} />
 
                   <span className="text-sm font-semibold">

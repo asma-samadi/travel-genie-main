@@ -803,7 +803,7 @@ Do not include explanations outside the JSON.
 
         <button
           onClick={() => navigate("/dashboard/trips")}
-          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-3 text-white transition hover:bg-cyan-600"
+          className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#F58220] px-5 py-3 text-white transition hover:bg-[#e07010]"
         >
           <ArrowLeft size={18} />
           Back to Trips
@@ -822,7 +822,7 @@ Do not include explanations outside the JSON.
 
       <button
         onClick={() => navigate(-1)}
-        className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-gray-700 transition hover:bg-gray-100 hover:text-cyan-500 dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
+        className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-gray-700 transition hover:bg-gray-100 hover:text-[#F58220] dark:border-white/10 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
       >
         <ArrowLeft size={19} />
         Back
@@ -833,7 +833,7 @@ Do not include explanations outside the JSON.
       <GlassCard className="p-5 sm:p-6">
         <div className="flex flex-col justify-between gap-5 sm:flex-row">
           <div>
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-3 py-1.5 text-sm font-medium text-cyan-600 dark:text-cyan-400">
+            <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#F58220]/10 px-3 py-1.5 text-sm font-medium text-[#F58220] dark:text-amber-400">
               <MapPin size={16} />
               Trip Destination
             </div>
@@ -843,7 +843,7 @@ Do not include explanations outside the JSON.
             </h1>
 
             <div className="mt-3 flex items-center gap-2 text-gray-600 dark:text-white/70">
-              <MapPin size={18} className="text-cyan-500" />
+              <MapPin size={18} className="text-[#F58220]" />
               <span>{trip.destination}</span>
             </div>
           </div>
@@ -882,7 +882,7 @@ Do not include explanations outside the JSON.
                 size={21}
                 className={
                   trip.favorite
-                    ? "fill-cyan-500 text-cyan-500"
+                    ? "fill-[#F58220] text-[#F58220]"
                     : "text-gray-400 dark:text-white/60"
                 }
               />
@@ -891,7 +891,7 @@ Do not include explanations outside the JSON.
         </div>
 
         {shareMessage && (
-          <div className="mt-4 rounded-xl border border-cyan-500/20 bg-cyan-500/10 px-4 py-3 text-sm text-cyan-600 dark:text-cyan-400">
+          <div className="mt-4 rounded-xl border border-[#F58220]/25 bg-[#F58220]/10 px-4 py-3 text-sm text-[#F58220] dark:text-amber-400">
             {shareMessage}
           </div>
         )}
@@ -942,7 +942,7 @@ Do not include explanations outside the JSON.
             <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
               <div>
                 <div className="flex items-center gap-2">
-                  <MapPin size={18} className="text-cyan-500" />
+                  <MapPin size={18} className="text-[#F58220]" />
 
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                     {weather.city}
@@ -1027,7 +1027,7 @@ Do not include explanations outside the JSON.
                 <button
                   onClick={generateItinerary}
                   disabled={aiLoading}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-cyan-600 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F58220] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#e07010] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   <Sparkles size={17} />
                   {aiLoading
@@ -1052,7 +1052,7 @@ Do not include explanations outside the JSON.
                   <button
                     onClick={saveItinerary}
                     disabled={savingItinerary}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-cyan-600 disabled:opacity-50"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F58220] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#e07010] disabled:opacity-50"
                   >
                     <Save size={17} />
                     {savingItinerary ? "Saving..." : "Save Changes"}
@@ -1072,7 +1072,7 @@ Do not include explanations outside the JSON.
                 <GlassCard key={index} className="p-4 sm:p-5">
                   <div className="mb-4 flex items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 text-sm font-bold text-white">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#F58220] text-sm font-bold text-white">
                         {index + 1}
                       </div>
 
@@ -1186,7 +1186,7 @@ Do not include explanations outside the JSON.
             <button
               onClick={generateBudgetPlan}
               disabled={budgetLoading}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-cyan-600 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F58220] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#e07010] disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Sparkles size={17} />
 
@@ -1281,7 +1281,7 @@ Do not include explanations outside the JSON.
             <button
               onClick={generatePackingList}
               disabled={packingLoading}
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-500 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-cyan-600 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#F58220] px-4 py-2.5 text-sm font-medium text-white transition hover:bg-[#e07010] disabled:cursor-not-allowed disabled:opacity-50"
             >
               <Sparkles size={17} />
 
@@ -1303,7 +1303,7 @@ Do not include explanations outside the JSON.
             {trip.packingList.map((item, index) => (
               <GlassCard key={index} className="p-3.5">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-500">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F58220]/10 text-[#F58220]">
                     <Check size={15} />
                   </div>
 
@@ -1344,7 +1344,7 @@ function SectionDivider() {
 function SectionHeader({ icon, title, description, actions }) {
   return (
     <div className="mb-4 flex items-start gap-3">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F58220]/10 text-[#F58220]">
         {icon}
       </div>
 
@@ -1374,7 +1374,7 @@ function SectionHeader({ icon, title, description, actions }) {
 function Info({ icon, label, text }) {
   return (
     <div className="rounded-xl border border-gray-200 bg-gray-100 p-3.5 dark:border-white/5 dark:bg-white/10">
-      <div className="flex items-center gap-2 text-cyan-500">
+      <div className="flex items-center gap-2 text-[#F58220]">
         {icon}
 
         <span className="text-xs font-medium">{label}</span>
@@ -1392,7 +1392,7 @@ function Info({ icon, label, text }) {
 function Activity({ icon, label, text }) {
   return (
     <div className="flex gap-3 rounded-lg bg-gray-50 p-3 dark:bg-white/5">
-      <div className="mt-0.5 shrink-0 text-cyan-500">{icon}</div>
+      <div className="mt-0.5 shrink-0 text-[#F58220]">{icon}</div>
 
       <div className="min-w-0">
         <p className="text-sm font-semibold text-gray-900 dark:text-white">
@@ -1415,7 +1415,7 @@ function EditableActivity({ icon, label, value, onChange }) {
   return (
     <div className="rounded-lg bg-gray-50 p-3 dark:bg-white/5">
       <div className="mb-2 flex items-center gap-2">
-        <div className="text-cyan-500">{icon}</div>
+        <div className="text-[#F58220]">{icon}</div>
 
         <p className="text-sm font-semibold text-gray-900 dark:text-white">
           {label}
@@ -1426,7 +1426,7 @@ function EditableActivity({ icon, label, value, onChange }) {
         value={value}
         onChange={(event) => onChange(event.target.value)}
         rows={2}
-        className="w-full resize-none rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-cyan-500 dark:border-white/10 dark:bg-white/5 dark:text-white"
+        className="w-full resize-none rounded-lg border border-gray-200 bg-white px-3 py-2.5 text-sm text-gray-900 outline-none focus:ring-2 focus:ring-[#F58220] dark:border-white/10 dark:bg-white/5 dark:text-white"
         placeholder={`Enter ${label.toLowerCase()} activity...`}
       />
     </div>
@@ -1440,7 +1440,7 @@ function EditableActivity({ icon, label, value, onChange }) {
 function BudgetCard({ icon, title, value }) {
   return (
     <GlassCard className="p-4">
-      <div className="flex items-center gap-2 text-cyan-500">
+      <div className="flex items-center gap-2 text-[#F58220]">
         {icon}
 
         <span className="text-sm font-medium text-gray-700 dark:text-white/70">

@@ -89,7 +89,7 @@ function RecentTrips() {
       <section className="mt-8">
         <div className="mb-5 flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-[#00B1E2] dark:text-white">
+            <h2 className="text-2xl font-bold text-[#F58220] dark:text-white">
               Recent Trips
             </h2>
 
@@ -101,7 +101,7 @@ function RecentTrips() {
 
         <div className="flex min-h-[220px] items-center justify-center rounded-[28px] border border-gray-200 bg-white/70 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
           <div className="flex items-center gap-3 text-gray-600 dark:text-white/70">
-            <Loader2 size={22} className="animate-spin text-[#00B1E2]" />
+            <Loader2 size={22} className="animate-spin text-[#F58220]" />
             Loading your trips...
           </div>
         </div>
@@ -117,7 +117,7 @@ function RecentTrips() {
     return (
       <section className="mt-8">
         <div className="mb-5">
-          <h2 className="text-2xl font-bold text-[#00B1E2] dark:text-white">
+          <h2 className="text-2xl font-bold text-[#F58220] dark:text-white">
             Recent Trips
           </h2>
 
@@ -127,7 +127,7 @@ function RecentTrips() {
         </div>
 
         <div className="rounded-[28px] border border-gray-200 bg-white/70 p-10 text-center shadow-xl backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-500">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F58220]/15 text-[#F58220]">
             <MapPin size={26} />
           </div>
 
@@ -141,7 +141,7 @@ function RecentTrips() {
 
           <Link
             to="/dashboard/create-trip"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-105"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-[#F58220] px-5 py-3 text-sm font-semibold text-white shadow-lg transition hover:scale-105"
           >
             Create Your First Trip
             <ArrowRight size={17} />
@@ -161,7 +161,7 @@ function RecentTrips() {
 
       <div className="mb-5 flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-[#00B1E2] dark:text-white">
+          <h2 className="text-2xl font-bold text-[#F58220] dark:text-white">
             Recent Trips
           </h2>
 
@@ -172,7 +172,7 @@ function RecentTrips() {
 
         <Link
           to="/dashboard/trips"
-          className="group flex items-center gap-1 text-sm font-semibold text-[#00B1E2] transition hover:text-cyan-600 dark:text-cyan-400 dark:hover:text-cyan-300"
+          className="group flex items-center gap-1 text-sm font-semibold text-[#F58220] transition hover:text-[#F58220] dark:text-amber-400 dark:hover:text-amber-300"
         >
           View all
           <ArrowRight
@@ -266,7 +266,7 @@ function RecentTrips() {
                 {/* DATE */}
 
                 <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                  <CalendarDays size={16} className="shrink-0 text-[#00B1E2]" />
+                  <CalendarDays size={16} className="shrink-0 text-[#F58220]" />
 
                   <span>{getTripDate(trip)}</span>
                 </div>
@@ -274,9 +274,9 @@ function RecentTrips() {
                 {/* BUDGET */}
 
                 <div className="mt-3 flex items-center gap-2">
-                  <Wallet size={16} className="text-[#00B1E2]" />
+                  <Wallet size={16} className="text-[#F58220]" />
 
-                  <span className="font-semibold text-[#00B1E2]">{budget}</span>
+                  <span className="font-semibold text-[#F58220]">{budget}</span>
 
                   <span className="text-xs text-gray-400">budget</span>
                 </div>
@@ -285,7 +285,7 @@ function RecentTrips() {
 
                 {trip.travelStyle || trip.travel_style ? (
                   <div className="mt-3">
-                    <span className="inline-flex rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-medium text-cyan-600 dark:text-cyan-400">
+                    <span className="inline-flex rounded-full bg-[#F58220]/15 px-3 py-1 text-xs font-medium text-[#F58220] dark:text-amber-400">
                       {trip.travelStyle || trip.travel_style}
                     </span>
                   </div>
@@ -304,8 +304,8 @@ function RecentTrips() {
                     gap-2
                     rounded-xl
                     bg-gradient-to-r
-                    from-cyan-500
-                    to-blue-600
+                    from-amber-500
+                    to-[#F58220]
                     py-3
                     text-sm
                     font-semibold

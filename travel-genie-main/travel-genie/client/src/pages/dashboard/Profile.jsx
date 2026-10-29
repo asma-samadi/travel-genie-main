@@ -350,7 +350,7 @@ function Profile() {
       <div className="max-w-5xl mx-auto">
         <GlassCard className="p-8">
           <div className="flex flex-col items-center justify-center gap-3">
-            <Loader2 size={28} className="animate-spin text-cyan-500" />
+            <Loader2 size={28} className="animate-spin text-[#F58220]" />
 
             <p className="text-center text-gray-600 dark:text-white/70">
               Loading your profile...
@@ -378,7 +378,7 @@ function Profile() {
             <button
               type="button"
               onClick={loadProfile}
-              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:scale-105"
+              className="flex items-center gap-2 rounded-xl bg-[#F58220] hover:bg-[#e07010] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:scale-105"
             >
               <RotateCcw size={16} />
               Try Again
@@ -431,7 +431,7 @@ function Profile() {
       <GlassCard className="overflow-hidden">
         {/* Top accent */}
 
-        <div className="h-2 bg-gradient-to-r from-cyan-500 to-blue-600" />
+        <div className="h-2 bg-[#F58220] hover:bg-[#e07010]" />
 
         <div className="p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
@@ -450,7 +450,7 @@ function Profile() {
                   }}
                 />
               ) : (
-                <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-cyan-500 to-blue-600 text-3xl font-bold text-white shadow-lg">
+                <div className="flex h-24 w-24 items-center justify-center rounded-3xl bg-[#F58220] text-3xl font-bold text-white shadow-lg">
                   {username.charAt(0).toUpperCase()}
                 </div>
               )}
@@ -490,7 +490,7 @@ function Profile() {
                 </span>
 
                 {isAdmin && (
-                  <span className="w-fit mx-auto sm:mx-0 flex items-center gap-1.5 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                  <span className="w-fit mx-auto sm:mx-0 flex items-center gap-1.5 rounded-full bg-[#F58220]/15 px-3 py-1 text-xs font-semibold text-[#F58220] dark:text-amber-400 border border-[#F58220]/25">
                     <ShieldCheck size={13} />
                     Admin
                   </span>
@@ -502,7 +502,7 @@ function Profile() {
               </p>
 
               <div className="mt-4 flex justify-center sm:justify-start items-center gap-2 text-sm text-gray-500 dark:text-white/60">
-                <Globe2 size={16} className="text-cyan-500" />
+                <Globe2 size={16} className="text-[#F58220]" />
                 Building memorable journeys with TravelGenie
               </div>
             </div>
@@ -537,7 +537,7 @@ function Profile() {
                   type="button"
                   onClick={handleSave}
                   disabled={saving}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-[#F58220] hover:bg-[#e07010] px-5 py-3 text-sm font-semibold text-white shadow-md transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {saving ? (
                     <>
@@ -647,7 +647,7 @@ function Profile() {
                 onChange={(event) => setBio(event.target.value)}
                 rows={4}
                 placeholder="Tell us a little about yourself..."
-                className="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40"
+                className="w-full resize-none rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#F58220] focus:ring-2 focus:ring-[#F58220]/20 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40"
               />
 
               <p className="mt-1 text-xs text-gray-400">
@@ -659,7 +659,7 @@ function Profile() {
 
             <div>
               <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-white/80">
-                <Briefcase size={16} className="text-cyan-500" />
+                <Briefcase size={16} className="text-[#F58220]" />
                 Travel Style
               </label>
 
@@ -669,7 +669,7 @@ function Profile() {
                 onChange={(event) => setTravelStyle(event.target.value)}
                 placeholder="e.g. Adventure, Luxury, Budget, Family..."
                 maxLength={100}
-                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40"
+                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#F58220] focus:ring-2 focus:ring-[#F58220]/20 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40"
               />
             </div>
 
@@ -677,7 +677,7 @@ function Profile() {
 
             <div>
               <label className="mb-2 flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-white/80">
-                <Map size={16} className="text-cyan-500" />
+                <Map size={16} className="text-[#F58220]" />
                 Favorite Destination
               </label>
 
@@ -687,7 +687,7 @@ function Profile() {
                 onChange={(event) => setFavoriteDestination(event.target.value)}
                 placeholder="e.g. Istanbul, Dubai, Paris..."
                 maxLength={150}
-                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40"
+                className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition focus:border-[#F58220] focus:ring-2 focus:ring-[#F58220]/20 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-white/40"
               />
             </div>
           </div>
@@ -700,7 +700,7 @@ function Profile() {
 
       <section>
         <div className="flex items-center gap-3 mb-5">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
             <Plane size={20} />
           </div>
 
@@ -791,7 +791,7 @@ function Profile() {
         profile?.favorite_destination) && (
         <GlassCard className="p-6 sm:p-7">
           <div className="flex items-start gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
               <Globe2 size={21} />
             </div>
 
@@ -848,7 +848,7 @@ function Profile() {
 
       <GlassCard className="p-6 sm:p-7">
         <div className="flex items-start gap-4">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
             <MapPin size={21} />
           </div>
 
@@ -865,7 +865,7 @@ function Profile() {
                   {travelStats.destinations !== 1 ? "s" : ""}
                 </span>
                 . Your latest saved destination is{" "}
-                <span className="font-semibold text-cyan-600 dark:text-cyan-400">
+                <span className="font-semibold text-[#F58220] dark:text-amber-400">
                   {travelStats.recentDestination}
                 </span>
                 .
@@ -905,7 +905,7 @@ function Profile() {
                 href={`${API_BASE_URL}/admin/`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-5 py-3 text-sm font-semibold text-cyan-600 dark:text-cyan-400 hover:bg-cyan-500/20 transition-all"
+                className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-xl border border-[#F58220]/30 bg-[#F58220]/15 px-5 py-3 text-sm font-semibold text-[#F58220] dark:text-amber-400 hover:bg-[#F58220]/25 transition-all"
               >
                 <ShieldCheck size={18} />
                 Admin Portal
@@ -934,7 +934,7 @@ function Profile() {
 function ProfileStat({ icon, label, value }) {
   return (
     <GlassCard className="p-5">
-      <div className="flex items-center gap-2 text-cyan-500">
+      <div className="flex items-center gap-2 text-[#F58220]">
         {icon}
 
         <span className="text-sm font-medium text-gray-500 dark:text-white/60">
@@ -957,7 +957,7 @@ function ProfileInfo({ icon, label, value }) {
   return (
     <GlassCard className="p-5">
       <div className="flex items-center gap-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 dark:bg-cyan-400/10 dark:text-cyan-300">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220] dark:bg-amber-400/10 dark:text-amber-300">
           {icon}
         </div>
 

@@ -148,7 +148,7 @@ export default function AIAssistantPage() {
         </div>
 
         {/* Chat Box Container */}
-        <div className="flex-1 min-h-[460px] max-h-[620px] rounded-3xl bg-white dark:bg-[#0B1F3A]/90 shadow-xl border border-gray-100 dark:border-white/10 flex flex-col overflow-hidden">
+        <div className="flex-1 min-h-[460px] max-h-[620px] rounded-3xl bg-white dark:bg-[#0B1F3A]/90 shadow-xl border border-gray-100 dark:border-white/10 flex flex-col overflow-hidden w-full">
           
           {/* Messages Scroll Area */}
           <div className="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4">
@@ -173,7 +173,7 @@ export default function AIAssistantPage() {
                 {/* Message Bubble */}
                 <div className="space-y-1.5">
                   <div
-                    className={`p-4 sm:p-5 rounded-2xl text-xs sm:text-sm leading-relaxed whitespace-pre-line ${
+                    className={`p-4 sm:p-5 rounded-2xl text-xs sm:text-sm leading-relaxed whitespace-pre-line break-words ${
                       msg.role === "user"
                         ? "bg-[#0B1F3A] text-white dark:bg-[#F58220]"
                         : "bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10 text-gray-800 dark:text-gray-100"

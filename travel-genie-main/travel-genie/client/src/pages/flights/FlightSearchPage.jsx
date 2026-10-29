@@ -141,7 +141,7 @@ export default function FlightSearchPage() {
                           <span className="font-extrabold text-base text-gray-900 dark:text-white">
                             Kam Air {flight.flightNumber}
                           </span>
-                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
+                          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#F58220]/10 text-[#F58220] border border-[#F58220]/20">
                             {flight.cabinClass}
                           </span>
                         </div>
@@ -214,7 +214,7 @@ export default function FlightSearchPage() {
                         <button
                           type="button"
                           onClick={() => handlePlanWithAI(flight)}
-                          className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-semibold text-xs hover:bg-cyan-500/20 transition"
+                          className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl border border-[#F58220]/30 bg-[#F58220]/10 text-[#F58220] dark:text-amber-400 font-semibold text-xs hover:bg-[#F58220]/20 transition"
                         >
                           <Sparkles size={13} />
                           <span>Plan Trip with AI</span>

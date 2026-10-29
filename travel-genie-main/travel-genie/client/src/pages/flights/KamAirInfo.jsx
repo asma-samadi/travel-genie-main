@@ -174,7 +174,7 @@ export default function KamAirInfo() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <GlassCard className="p-6 sm:p-8 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center">
+                <div className="h-10 w-10 rounded-xl bg-[#F58220]/10 text-[#F58220] flex items-center justify-center">
                   <Luggage size={22} />
                 </div>
                 <div>
@@ -260,12 +260,12 @@ export default function KamAirInfo() {
         {activeTab === "contact" && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <GlassCard className="p-6 space-y-3">
-              <MapPin size={22} className="text-cyan-500" />
+              <MapPin size={22} className="text-[#F58220]" />
               <h3 className="font-bold text-base text-gray-900 dark:text-white">Kabul Central Office</h3>
               <p className="text-xs text-gray-600 dark:text-white/70">
                 Kabul Business Centre, Haji Yaqoob Square, Shahr-e Naw, Kabul, Afghanistan
               </p>
-              <p className="text-xs font-semibold text-cyan-600 dark:text-cyan-400">Phone: +93 79 970 8080</p>
+              <p className="text-xs font-semibold text-[#F58220] dark:text-amber-400">Phone: +93 79 970 8080</p>
             </GlassCard>
 
             <GlassCard className="p-6 space-y-3">

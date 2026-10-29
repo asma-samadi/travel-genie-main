@@ -158,9 +158,9 @@ function UpcomingTripsCalendar() {
             justify-center
             rounded-2xl
             bg-[#00B1E2]/10
-            text-[#00B1E2]
-            dark:bg-cyan-500/10
-            dark:text-cyan-400
+            text-[#F58220]
+            dark:bg-[#F58220]/15
+            dark:text-amber-400
           "
         >
           <CalendarDays size={19} />
@@ -404,13 +404,13 @@ function UpcomingTripsCalendar() {
                   bg-[#00B1E2]/5
                   px-3
                   py-2.5
-                  dark:bg-cyan-500/10
+                  dark:bg-[#F58220]/15
                 "
               >
                 <div className="flex items-center gap-2">
                   <Plane
                     size={15}
-                    className="shrink-0 text-[#00B1E2] dark:text-cyan-400"
+                    className="shrink-0 text-[#F58220] dark:text-amber-400"
                   />
 
                   <div className="min-w-0">
@@ -597,9 +597,9 @@ function UpcomingTripsCalendar() {
                           justify-center
                           rounded-xl
                           bg-[#00B1E2]/10
-                          text-[#00B1E2]
-                          dark:bg-cyan-500/10
-                          dark:text-cyan-400
+                          text-[#F58220]
+                          dark:bg-[#F58220]/15
+                          dark:text-amber-400
                         "
                       >
                         <MapPin size={16} />

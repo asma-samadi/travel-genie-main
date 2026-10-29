@@ -184,7 +184,7 @@ function WeatherCard() {
           h-28
           w-28
           rounded-full
-          bg-cyan-400/10
+          bg-[#F58220]/10
           blur-2xl
         "
       />
@@ -200,8 +200,8 @@ function WeatherCard() {
             items-center
             justify-center
             rounded-2xl
-            bg-cyan-500/10
-            text-cyan-500
+            bg-[#F58220]/15
+            text-[#F58220]
           "
         >
           <CloudSun size={19} />
@@ -281,14 +281,14 @@ function WeatherCard() {
                 dark:bg-white/5
               "
             >
-              <Thermometer size={20} className="text-cyan-500" />
+              <Thermometer size={20} className="text-[#F58220]" />
             </div>
           </div>
 
           {/* Weather details */}
           <div className="mt-4 grid grid-cols-3 gap-2">
             <div className="rounded-xl bg-gray-50/80 px-2 py-2 text-center dark:bg-white/5">
-              <Droplets size={14} className="mx-auto text-cyan-500" />
+              <Droplets size={14} className="mx-auto text-[#F58220]" />
               <p className="mt-1 text-[10px] text-gray-500 dark:text-white/50">
                 Humidity
               </p>
@@ -298,7 +298,7 @@ function WeatherCard() {
             </div>
 
             <div className="rounded-xl bg-gray-50/80 px-2 py-2 text-center dark:bg-white/5">
-              <Wind size={14} className="mx-auto text-cyan-500" />
+              <Wind size={14} className="mx-auto text-[#F58220]" />
               <p className="mt-1 text-[10px] text-gray-500 dark:text-white/50">
                 Wind
               </p>
@@ -308,7 +308,7 @@ function WeatherCard() {
             </div>
 
             <div className="rounded-xl bg-gray-50/80 px-2 py-2 text-center dark:bg-white/5">
-              <Navigation size={14} className="mx-auto text-cyan-500" />
+              <Navigation size={14} className="mx-auto text-[#F58220]" />
               <p className="mt-1 text-[10px] text-gray-500 dark:text-white/50">
                 Feels like
               </p>

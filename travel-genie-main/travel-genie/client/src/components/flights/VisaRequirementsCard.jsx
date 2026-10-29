@@ -76,7 +76,7 @@ export default function VisaRequirementsCard({ defaultDestination = "DXB" }) {
               Last Verified
             </span>
             <div className="mt-1 flex items-center gap-1.5 text-sm font-bold text-gray-700 dark:text-white/80">
-              <Calendar size={14} className="text-cyan-500" />
+              <Calendar size={14} className="text-[#F58220]" />
               <span>{data.lastVerified}</span>
             </div>
           </div>
@@ -85,14 +85,14 @@ export default function VisaRequirementsCard({ defaultDestination = "DXB" }) {
         {/* Requirements Checklist */}
         <div>
           <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-            <FileText size={16} className="text-cyan-500" />
+            <FileText size={16} className="text-[#F58220]" />
             Mandatory Documents Checklist
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {data.requirements.map((req, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-2.5 p-3 rounded-xl bg-cyan-500/5 dark:bg-white/[0.03] border border-cyan-500/10 text-xs text-gray-800 dark:text-white/85"
+                className="flex items-start gap-2.5 p-3 rounded-xl bg-[#F58220]/5 dark:bg-white/[0.03] border border-[#F58220]/15 text-xs text-gray-800 dark:text-white/85"
               >
                 <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
                 <span>{req}</span>

@@ -33,8 +33,8 @@ export default function KamAirAnalytics() {
 
   const aiQueryCategories = [
     { category: "Visa & Entry Requirements", count: 41, icon: ShieldCheck, color: "text-amber-500" },
-    { category: "Hotel & Neighborhood Recommendations", count: 28, icon: Globe2, color: "text-cyan-500" },
-    { category: "Kam Air Flight Schedules & Timing", count: 19, icon: Plane, color: "text-blue-500" },
+    { category: "Hotel & Neighborhood Recommendations", count: 28, icon: Globe2, color: "text-[#F58220]" },
+    { category: "Kam Air Flight Schedules & Timing", count: 19, icon: Plane, color: "text-[#F58220]" },
     { category: "Baggage & Zamzam Rules", count: 12, icon: Luggage, color: "text-emerald-500" },
   ];
 
@@ -105,7 +105,7 @@ export default function KamAirAnalytics() {
         <GlassCard className="p-5 space-y-2">
           <div className="flex items-center justify-between text-gray-500 dark:text-white/60 text-xs font-medium">
             <span>Total Flight Inquiries</span>
-            <Search size={18} className="text-cyan-500" />
+            <Search size={18} className="text-[#F58220]" />
           </div>
           <p className="text-3xl font-black text-gray-900 dark:text-white">36,700</p>
           <span className="text-xs font-bold text-emerald-500">+18% vs last month</span>
@@ -135,7 +135,7 @@ export default function KamAirAnalytics() {
             <Users size={18} className="text-emerald-500" />
           </div>
           <p className="text-xl font-black text-gray-900 dark:text-white">78% Eco / 22% Biz</p>
-          <span className="text-xs font-bold text-cyan-500">Growing Business demand</span>
+          <span className="text-xs font-bold text-[#F58220]">Growing Business demand</span>
         </GlassCard>
       </div>
 
@@ -217,7 +217,7 @@ export default function KamAirAnalytics() {
       <GlassCard className="p-6 sm:p-7 space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <MessageSquare size={18} className="text-cyan-500" />
+            <MessageSquare size={18} className="text-[#F58220]" />
             <span>Recent AI Assistant Passenger Prompts</span>
           </h3>
           <span className="text-xs text-gray-400">Live Simulation Stream</span>

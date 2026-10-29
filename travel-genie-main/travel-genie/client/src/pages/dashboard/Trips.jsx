@@ -14,12 +14,14 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useTrips } from "../../context/TripContext.jsx";
+import { useLocalization } from "../../context/LocalizationContext.jsx";
 import DeleteModal from "../../components/Common/DeleteModal";
 
 function Trips() {
   const navigate = useNavigate();
 
   const { trips, loading, deleteTrip, toggleFavorite, addTrip } = useTrips();
+  const { formatPrice, t } = useLocalization();
 
   const [deleteTripData, setDeleteTripData] = useState(null);
   const [deletedTrip, setDeletedTrip] = useState(null);
@@ -152,7 +154,7 @@ function Trips() {
             items-center
             justify-center
             rounded-2xl
-            bg-cyan-500/10
+            bg-[#F58220]/15
             text-3xl
           "
         >
@@ -165,11 +167,7 @@ function Trips() {
             text-3xl
             font-bold
             bg-gradient-to-r
-            from-cyan-500
-            via-blue-500
-            to-purple-500
-            bg-clip-text
-            text-transparent
+            text-[#0B1F3A] dark:text-white
           "
         >
           No Trips Yet
@@ -188,14 +186,14 @@ function Trips() {
             items-center
             gap-2
             rounded-xl
-            bg-cyan-500
+            bg-[#F58220]
             px-6
             py-3
             font-semibold
             text-white
             shadow-sm
             transition
-            hover:bg-cyan-400
+            hover:bg-[#e07010]
             hover:shadow-md
           "
         >
@@ -230,11 +228,7 @@ function Trips() {
               text-3xl
               font-bold
               bg-gradient-to-r
-              from-cyan-500
-              via-blue-500
-              to-purple-500
-              bg-clip-text
-              text-transparent
+              text-[#0B1F3A] dark:text-white
               sm:text-4xl
             "
           >
@@ -254,14 +248,14 @@ function Trips() {
             justify-center
             gap-2
             rounded-xl
-            bg-cyan-500
+            bg-[#F58220]
             px-5
             py-3
             font-semibold
             text-white
             shadow-sm
             transition
-            hover:bg-cyan-400
+            hover:bg-[#e07010]
             hover:shadow-md
           "
         >
@@ -349,9 +343,8 @@ function Trips() {
                 h-1
                 w-full
                 bg-gradient-to-r
-                from-cyan-500
-                via-blue-500
-                to-purple-500
+                from-amber-500
+                to-[#F58220]
                 opacity-80
               "
             />
@@ -384,7 +377,7 @@ function Trips() {
                     dark:text-white/60
                   "
                 >
-                  <MapPin size={16} className="shrink-0 text-cyan-500" />
+                  <MapPin size={16} className="shrink-0 text-[#F58220]" />
 
                   <span className="truncate">
                     {trip.travelStyle || trip.travel_style || "Travel"}
@@ -408,8 +401,8 @@ function Trips() {
                   hover:scale-105
                   ${
                     trip.favorite
-                      ? "bg-cyan-500 text-white shadow-sm"
-                      : "bg-gray-100 text-gray-400 hover:bg-cyan-500/10 hover:text-cyan-500 dark:bg-white/10 dark:text-white/60"
+                      ? "bg-[#F58220] text-white shadow-sm"
+                      : "bg-gray-100 text-gray-400 hover:bg-[#F58220]/15 hover:text-[#F58220] dark:bg-white/10 dark:text-white/60"
                   }
                 `}
                 aria-label="Toggle trip label"
@@ -448,8 +441,8 @@ function Trips() {
                       items-center
                       justify-center
                       rounded-lg
-                      bg-cyan-500/10
-                      text-cyan-500
+                      bg-[#F58220]/15
+                      text-[#F58220]
                     "
                   >
                     <Calendar size={17} />
@@ -479,8 +472,8 @@ function Trips() {
                       items-center
                       justify-center
                       rounded-lg
-                      bg-blue-500/10
-                      text-blue-500
+                      bg-amber-500/15
+                      text-[#F58220]
                     "
                   >
                     <Users size={17} />
@@ -510,8 +503,8 @@ function Trips() {
                       items-center
                       justify-center
                       rounded-lg
-                      bg-purple-500/10
-                      text-purple-500
+                      bg-[#F58220]/15
+                      text-[#F58220]
                     "
                   >
                     <Wallet size={17} />
@@ -523,7 +516,7 @@ function Trips() {
                     </p>
 
                     <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                      ${trip.budget || 0}
+                      {formatPrice(trip.budget || 0)}
                     </p>
                   </div>
                 </div>
@@ -546,14 +539,14 @@ function Trips() {
                   justify-center
                   gap-2
                   rounded-xl
-                  bg-cyan-500
+                  bg-[#F58220]
                   py-3
                   text-sm
                   font-semibold
                   text-white
                   shadow-sm
                   transition
-                  hover:bg-cyan-400
+                  hover:bg-[#e07010]
                 "
               >
                 <Eye size={17} />
@@ -670,14 +663,14 @@ function Trips() {
               onClick={handleUndo}
               className="
                 rounded-lg
-                bg-cyan-500
+                bg-[#F58220]
                 px-4
                 py-2
                 text-sm
                 font-semibold
                 text-white
                 transition
-                hover:bg-cyan-400
+                hover:bg-[#e07010]
               "
             >
               Undo

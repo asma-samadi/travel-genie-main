@@ -137,8 +137,8 @@ function StatsCards() {
                   rounded-2xl
 
                   bg-gradient-to-r
-                  from-cyan-500
-                  to-blue-600
+                  from-amber-500
+                  to-[#F58220]
 
                   flex
                   items-center

@@ -2,28 +2,17 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 .nav-link {
-
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  color:#6b7280;
-
-  transition:0.3s;
-
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  transition: 0.3s;
 }
-
 
 .nav-link:hover {
-
-  color:#06b6d4;
-
+  color: #F58220;
 }
-
 
 .input-style {
   width: 100%;
@@ -37,8 +26,8 @@
 }
 
 .input-style:focus {
-  border-color: #06b6d4;
-  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+  border-color: #F58220;
+  box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.15);
 }
 
 .dark .input-style {
@@ -87,4 +76,4 @@ select option {
 html.dark select option {
   background-color: #ffffff !important;
   color: #111827 !important;
-}
+}

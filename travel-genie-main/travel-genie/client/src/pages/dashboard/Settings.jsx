@@ -55,7 +55,7 @@ function Settings() {
       {/* Account Overview */}
       <GlassCard className="p-6 sm:p-7">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
             <User size={20} />
           </div>
           <div>
@@ -88,8 +88,8 @@ function Settings() {
             <div className="mt-1 flex items-center gap-1.5">
               {isAdmin ? (
                 <>
-                  <ShieldCheck size={16} className="text-cyan-500" />
-                  <span className="font-semibold text-cyan-600 dark:text-cyan-400">
+                  <ShieldCheck size={16} className="text-[#F58220]" />
+                  <span className="font-semibold text-[#F58220] dark:text-amber-400">
                     Administrator
                   </span>
                 </>
@@ -108,7 +108,7 @@ function Settings() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             to="/dashboard/profile"
-            className="flex items-center gap-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 px-4 py-2.5 text-sm font-semibold transition"
+            className="flex items-center gap-2 rounded-xl bg-[#F58220]/15 hover:bg-[#F58220]/25 text-[#F58220] dark:text-amber-400 px-4 py-2.5 text-sm font-semibold transition"
           >
             <User size={16} />
             Edit Profile Details
@@ -119,7 +119,7 @@ function Settings() {
               href={`${API_BASE_URL}/admin/`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 px-4 py-2.5 text-sm font-semibold transition"
+              className="flex items-center gap-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-[#F58220] dark:text-amber-400 px-4 py-2.5 text-sm font-semibold transition"
             >
               <ExternalLink size={16} />
               Open Django Admin
@@ -131,7 +131,7 @@ function Settings() {
       {/* Appearance */}
       <GlassCard className="p-6 sm:p-7">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
             <Palette size={20} />
           </div>
           <div>
@@ -160,7 +160,7 @@ function Settings() {
       {/* Preferences */}
       <GlassCard className="p-6 sm:p-7">
         <div className="flex items-center gap-3 mb-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-500">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F58220]/15 text-[#F58220]">
             <Sliders size={20} />
           </div>
           <div>
@@ -187,7 +187,7 @@ function Settings() {
               type="button"
               onClick={() => setNotifications(!notifications)}
               className={`h-6 w-11 rounded-full transition-colors relative ${
-                notifications ? "bg-cyan-500" : "bg-gray-300 dark:bg-white/20"
+                notifications ? "bg-[#F58220]" : "bg-gray-300 dark:bg-white/20"
               }`}
             >
               <span
@@ -211,7 +211,7 @@ function Settings() {
               type="button"
               onClick={() => setEmailUpdates(!emailUpdates)}
               className={`h-6 w-11 rounded-full transition-colors relative ${
-                emailUpdates ? "bg-cyan-500" : "bg-gray-300 dark:bg-white/20"
+                emailUpdates ? "bg-[#F58220]" : "bg-gray-300 dark:bg-white/20"
               }`}
             >
               <span

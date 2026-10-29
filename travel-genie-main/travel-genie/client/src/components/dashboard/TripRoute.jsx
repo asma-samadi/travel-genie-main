@@ -270,7 +270,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
   if (!currentTrip) {
     return (
       <div className="flex flex-1 flex-col items-center justify-center py-10 text-center">
-        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 text-blue-600 dark:text-cyan-400">
+        <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r bg-[#F58220]/15 text-[#F58220] dark:text-amber-400">
           <Plane size={34} strokeWidth={2} />
         </div>
 
@@ -292,14 +292,14 @@ const kamAirBookingUrl = "https://www.kamair.com/";
       <div className="relative mx-auto h-[190px] w-full max-w-2xl px-4 sm:px-8">
         {/* Origin */}
         <div className="absolute left-2 top-[112px] z-20 flex flex-col items-center sm:left-8">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/20 dark:border-gray-800">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-amber-500 to-[#F58220] text-white shadow-lg shadow-[#F58220]/20 dark:border-gray-800">
             <Navigation size={19} />
           </div>
 
           <div className="mt-3 max-w-[110px] text-center sm:max-w-[140px]">
             <p
               title={origin}
-              className="truncate bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-sm font-semibold text-transparent"
+              className="truncate bg-gradient-to-r from-amber-500 to-[#F58220] bg-clip-text text-sm font-semibold text-transparent"
             >
               {origin}
             </p>
@@ -312,14 +312,14 @@ const kamAirBookingUrl = "https://www.kamair.com/";
 
         {/* Destination */}
         <div className="absolute right-2 top-[20px] z-20 flex flex-col items-center sm:right-8">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white shadow-lg shadow-purple-500/20 dark:border-gray-800">
+          <div className="flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-amber-500 to-[#F58220] text-white shadow-lg shadow-[#F58220]/20 dark:border-gray-800">
             <MapPin size={19} />
           </div>
 
           <div className="mt-3 max-w-[110px] text-center sm:max-w-[140px]">
             <p
               title={destination}
-              className="truncate bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-sm font-semibold text-transparent"
+              className="truncate bg-gradient-to-r from-amber-500 to-[#F58220] bg-clip-text text-sm font-semibold text-transparent"
             >
               {destination}
             </p>
@@ -342,7 +342,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
             stroke="currentColor"
             strokeWidth="7"
             strokeLinecap="round"
-            className="text-blue-600/5 dark:text-cyan-400/5"
+            className="text-amber-500/10 dark:text-amber-400/10"
           />
 
           <path
@@ -352,7 +352,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
             strokeWidth="2"
             strokeLinecap="round"
             strokeDasharray="7 8"
-            className="text-blue-600/60 dark:text-cyan-400/60"
+            className="text-[#F58220]/60 dark:text-amber-400/60"
           />
 
           <circle
@@ -360,7 +360,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
             cy="145"
             r="3"
             fill="currentColor"
-            className="text-blue-600/30 dark:text-cyan-400/30"
+            className="text-[#F58220]/30 dark:text-amber-400/30"
           />
 
           <circle
@@ -368,7 +368,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
             cy="105"
             r="3"
             fill="currentColor"
-            className="text-blue-600/30 dark:text-cyan-400/30"
+            className="text-[#F58220]/30 dark:text-amber-400/30"
           />
 
           <circle
@@ -376,17 +376,17 @@ const kamAirBookingUrl = "https://www.kamair.com/";
             cy="58"
             r="3"
             fill="currentColor"
-            className="text-blue-600/30 dark:text-cyan-400/30"
+            className="text-[#F58220]/30 dark:text-amber-400/30"
           />
         </svg>
 
         {/* Flying Airplane */}
         <div className="pointer-events-none absolute inset-0">
           <div className="flight-plane">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-xl ring-1 ring-blue-600/10 dark:bg-gray-800 dark:ring-cyan-400/10">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-xl ring-1 ring-[#F58220]/20 dark:bg-[#071625] dark:ring-amber-400/20">
               <Plane
                 size={23}
-                className="rotate-[18deg] text-blue-600 dark:text-cyan-400"
+                className="rotate-[18deg] text-[#F58220] dark:text-amber-400"
                 strokeWidth={2}
               />
             </div>
@@ -396,23 +396,23 @@ const kamAirBookingUrl = "https://www.kamair.com/";
 
       {/* Route Information */}
       <div className="mt-2 grid grid-cols-2 gap-3 sm:mx-auto sm:max-w-md">
-        <div className="rounded-2xl bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 px-4 py-3 text-center">
+        <div className="rounded-2xl bg-gradient-to-r from-[#F58220]/10 to-amber-500/10 px-4 py-3 text-center">
           <p className="text-[11px] text-gray-500 dark:text-white/50">FROM</p>
 
           <p
             title={origin}
-            className="mt-1 truncate bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-sm font-semibold text-transparent"
+            className="mt-1 truncate bg-gradient-to-r from-amber-500 to-[#F58220] bg-clip-text text-sm font-semibold text-transparent"
           >
             {origin}
           </p>
         </div>
 
-        <div className="rounded-2xl bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 px-4 py-3 text-center">
+        <div className="rounded-2xl bg-gradient-to-r from-[#F58220]/10 to-amber-500/10 px-4 py-3 text-center">
           <p className="text-[11px] text-gray-500 dark:text-white/50">TO</p>
 
           <p
             title={destination}
-            className="mt-1 truncate bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 bg-clip-text text-sm font-semibold text-transparent"
+            className="mt-1 truncate bg-gradient-to-r from-amber-500 to-[#F58220] bg-clip-text text-sm font-semibold text-transparent"
           >
             {destination}
           </p>
@@ -420,8 +420,8 @@ const kamAirBookingUrl = "https://www.kamair.com/";
       </div>
 
       {/* Distance */}
-      <div className="mx-auto mt-4 flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 px-4 py-2">
-        <Route size={14} className="text-blue-600 dark:text-cyan-400" />
+      <div className="mx-auto mt-4 flex w-fit items-center gap-2 rounded-full bg-gradient-to-r from-[#F58220]/10 to-amber-500/10 px-4 py-2">
+        <Route size={14} className="text-[#F58220] dark:text-amber-400" />
 
         <span className="text-xs font-medium text-gray-600 dark:text-white/60">
           {geocoding
@@ -433,10 +433,10 @@ const kamAirBookingUrl = "https://www.kamair.com/";
       </div>
 
       {/* Kam Air Flight Information */}
-      <div className="mx-auto mt-4 w-full max-w-md rounded-2xl bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-purple-500/5 p-4">
+      <div className="mx-auto mt-4 w-full max-w-md rounded-2xl bg-gradient-to-r from-[#F58220]/10 to-amber-500/10 p-4">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/20">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-amber-500 to-[#F58220] text-white shadow-lg shadow-[#F58220]/20">
               <Plane size={18} />
             </div>
 
@@ -455,7 +455,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
             href={kamAirBookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 px-3 py-2 text-xs font-semibold text-white shadow-md transition hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-[#F58220] px-3 py-2 text-xs font-semibold text-white shadow-md transition hover:scale-[1.02]"
           >
             Book Ticket
             <ExternalLink size={13} />
@@ -466,7 +466,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
           <div className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 dark:bg-white/5">
             <CalendarDays
               size={15}
-              className="shrink-0 text-blue-600 dark:text-cyan-400"
+              className="shrink-0 text-[#F58220] dark:text-amber-400"
             />
 
             <div className="min-w-0">
@@ -482,7 +482,7 @@ const kamAirBookingUrl = "https://www.kamair.com/";
           <div className="flex items-center gap-2 rounded-xl bg-white/60 px-3 py-2 dark:bg-white/5">
             <Users
               size={15}
-              className="shrink-0 text-blue-600 dark:text-cyan-400"
+              className="shrink-0 text-[#F58220] dark:text-amber-400"
             />
 
             <div>

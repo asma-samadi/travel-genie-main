@@ -64,7 +64,7 @@ function Recommendations() {
               justify-center
               rounded-2xl
               bg-gradient-to-r
-              from-cyan-500
+              from-amber-500
               to-blue-600
               text-white
               shadow-lg
@@ -110,8 +110,8 @@ function Recommendations() {
                   items-center
                   justify-center
                   rounded-xl
-                  bg-cyan-500/15
-                  text-cyan-500
+                  bg-[#F58220]/15
+                  text-[#F58220]
                 "
               >
                 <Compass size={20} />
@@ -243,7 +243,7 @@ function Recommendations() {
                       justify-center
                       rounded-2xl
                       bg-gradient-to-r
-                      from-cyan-500
+                      from-amber-500
                       to-blue-600
                       text-white
                       shadow-lg
@@ -255,12 +255,12 @@ function Recommendations() {
                   <span
                     className="
                       rounded-full
-                      bg-cyan-500/10
+                      bg-[#F58220]/15
                       px-3
                       py-1
                       text-xs
                       font-semibold
-                      text-cyan-400
+                      text-amber-400
                     "
                   >
                     {recommendation.category}
@@ -312,7 +312,7 @@ function Recommendations() {
                     w-full
                     rounded-xl
                     bg-gradient-to-r
-                    from-cyan-500
+                    from-amber-500
                     to-blue-600
                     py-3
                     font-semibold
